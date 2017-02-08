@@ -1,0 +1,1 @@
+A student databse with login system to manage their social and coding platform profiles.
