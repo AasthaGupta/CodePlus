@@ -18,11 +18,10 @@
 <!-- Roboto Web Font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
 
-<!-- MDK -->
 {% assets "_css" %}
   <link rel="stylesheet" href="{{ ASSET_URL }}" />
 {% endassets %}
-	
+
 
 </head>
 <body class="login">
@@ -43,10 +42,10 @@
       <div class="p-2">
         <form action='login' method="get">
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Username",name="user-email">
+            <input type="email" class="form-control" placeholder="Username",name="email">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="password">
           </div>
           <div class="form-group ">
             <button type="submit" class="btn  btn-primary btn-block">

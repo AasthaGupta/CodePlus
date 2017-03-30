@@ -1,4 +1,4 @@
-import src
+from src import app
 
 if __name__ == '__main__':
-	src.app.run(debug=True)
+	app.run(debug=True)

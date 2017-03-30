@@ -18,18 +18,9 @@
 <!-- Roboto Web Font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
 
-<!-- MDK -->
-<link type="text/css" href="assets/vendor/material-design-kit.css" rel="stylesheet">
-
-<!-- Sidebar Collapse -->
-<link type="text/css" href="assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
-
-<!-- App CSS -->
-<link type="text/css" href="assets/css/style.min.css" rel="stylesheet">
-
-  
-
-  
+{% assets "_css" %}
+  <link rel="stylesheet" href="{{ ASSET_URL }}" />
+{% endassets %}
 
 </head>
 <body class="top-navbar">
@@ -41,7 +32,7 @@
 	<button class="navbar-toggler" type="button" data-toggle="sidebar"></button>
 
 	<!-- Brand -->
-	<a href="student-dashboard.html" class="navbar-brand"><i class="material-icons">school</i> CodePlus</a>
+	<a href="dashboard" class="navbar-brand"><i class="material-icons">school</i> CodePlus</a>
 	
 	<!-- Search -->
 <!-- <form class="navbar-search-form hidden-sm-down">
