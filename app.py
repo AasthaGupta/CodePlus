@@ -1,13 +1,4 @@
-#import os
-
-# from src.util import database
-# from src import app
-from flask import Flask
-app = Flask(__name__)
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+import src
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	src.app.run(debug=True)
