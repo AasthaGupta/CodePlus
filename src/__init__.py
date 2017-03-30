@@ -2,12 +2,12 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-03-30 18:50:28
+# @Last Modified time: 2017-03-30 21:01:53
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
 
-from util import assets
+from util import assets,database
 
 @app.route('/')
 @app.route('/index')
@@ -47,6 +47,7 @@ def logout():
 def not_found(e):
 	return render_template('error.html'), 404
 
+database.sql_init()
 
 if __name__ == '__main__':
 	app.run(debug=True)
