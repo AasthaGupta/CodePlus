@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from learnplus.themekit.io/ui-buttons.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Mar 2017 07:18:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Buttons - Components</title>
+
+  <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+<meta name="robots" content="noindex">
+
+<!-- Material Design Icons  -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Roboto Web Font -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+<!-- MDK -->
+<link type="text/css" href="assets/vendor/material-design-kit.css" rel="stylesheet">
+
+<!-- Sidebar Collapse -->
+<link type="text/css" href="assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+<!-- App CSS -->
+<link type="text/css" href="assets/css/style.min.css" rel="stylesheet">
+
+  
+
+  
+
+</head>
+<body class="top-navbar">
+
+  <!-- Navbar -->
+<nav class="navbar navbar-dark bg-primary navbar-full navbar-fixed-top">
+
+	<!-- Toggle sidebar -->
+	<button class="navbar-toggler" type="button" data-toggle="sidebar"></button>
+
+	<!-- Brand -->
+	<a href="student-dashboard.html" class="navbar-brand"><i class="material-icons">school</i> LearnPlus</a>
+	
+	<!-- Search -->
+<form class="navbar-search-form hidden-sm-down">
+  <input type="text" class="form-control" placeholder="Search">
+  <button class="btn" type="button"><i class="material-icons">search</i></button>
+</form>
+<!-- // END Search -->
+
+	<div class="navbar-spacer"></div>
+	
+	<!-- Menu --> 
+	<ul class="nav navbar-nav hidden-sm-down">
+		<li class="nav-item">
+			<a class="nav-link" href="student-forum.html">Forum</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="student-help-center.html">Get Help</a>
+		</li>
+	</ul>
+	
+	<!-- Menu -->
+	<ul class="nav navbar-nav">
+
+		<li class="nav-item">
+			<a href="student-cart.html" class="nav-link">
+				<i class="material-icons">shopping_cart</i>
+			</a>
+		</li>
+		
+		<!-- User dropdown -->
+<li class="nav-item dropdown">
+  <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"><img src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle" width="40"></a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
+    <a class="dropdown-item" href="student-account-edit.html">
+      <i class="material-icons">edit</i> Edit Account
+    </a>
+    <a class="dropdown-item" href="student-profile.html">
+      <i class="material-icons">person</i> Public Profile
+    </a>
+    <a class="dropdown-item" href="guest-login.html">
+      <i class="material-icons">lock</i> Logout
+    </a>
+  </div>
+</li>
+<!-- // END User dropdown -->
+
+	</ul>
+	<!-- // END Menu -->
+
+</nav>
+<!-- // END Navbar -->
+  
+  <div class="mdk-drawer-layout mdk-js-drawer-layout" push has-scrolling-region>
+    <div class="mdk-drawer-layout__content">
+      <div class="container-fluid">
+        
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+  <li class="breadcrumb-item active">Buttons</li>
+</ol>
+
+<div class="jumbotron">
+  <h1>Buttons</h1>
+  <p class="lead">Use any of the available button classes to quickly create a styled button, whether it's a regular, rounded or circle button. Group a series of buttons together on a single line with the button group. Add on optional JavaScript radio and checkbox style behavior.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Simple buttons</h5>
+  </div>
+  <div class="card-block">
+    <button type="button" class="btn btn-white">White</button>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-link">Link</button>
+    <hr>
+
+    <button type="button" class="btn btn-sm btn-white">White</button>
+    <button type="button" class="btn btn-sm btn-primary">Primary</button>
+    <button type="button" class="btn btn-sm btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-sm btn-success">Success</button>
+    <button type="button" class="btn btn-sm btn-info">Info</button>
+    <button type="button" class="btn btn-sm btn-warning">Warning</button>
+    <button type="button" class="btn btn-sm btn-danger">Danger</button>
+    <button type="button" class="btn btn-sm btn-link">Link</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Buttons with icons</h5>
+  </div>
+  <div class="card-block">
+    <button type="button" class="btn btn-white">
+      <i class="material-icons btn__icon--left">edit</i> White
+    </button>
+    <button type="button" class="btn btn-primary">
+      <i class="material-icons btn__icon--left">home</i> Primary
+    </button>
+    <button type="button" class="btn btn-secondary">
+      <i class="material-icons btn__icon--left">list</i> Secondary
+    </button>
+    <button type="button" class="btn btn-success">
+      <i class="material-icons btn__icon--left">done</i> Success
+    </button>
+    <button type="button" class="btn btn-info">
+      <i class="material-icons btn__icon--left">map</i> Info
+    </button>
+    <button type="button" class="btn btn-warning">
+      <i class="material-icons btn__icon--left">notifications</i> Warning
+    </button>
+    <button type="button" class="btn btn-danger ">
+      <i class="material-icons btn__icon--left">error_outline</i> Danger
+    </button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Button dropdown</h4>
+  </div>
+  <div class="card-block">
+    <div class="btn-group">
+      <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Primary</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Success</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Warning</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Rounded Buttons</h5>
+  </div>
+  <div class="card-block">
+    <h6>Deep radius</h6>
+    <button type="button" class="btn btn-white btn-rounded-deep">White</button>
+    <button type="button" class="btn btn-primary btn-rounded-deep">Primary</button>
+    <button type="button" class="btn btn-secondary btn-rounded-deep">Secondary</button>
+    <button type="button" class="btn btn-success btn-rounded-deep">Success</button>
+    <button type="button" class="btn btn-info btn-rounded-deep">Info</button>
+    <button type="button" class="btn btn-warning btn-rounded-deep">Warning</button>
+    <button type="button" class="btn btn-danger btn-rounded-deep">Danger</button>
+    <hr>
+
+    <h6>Circle Button with Icon</h6>
+    <button type="button" class="btn btn-white btn-circle">
+      <i class="material-icons">email</i>
+    </button>
+    <button type="button" class="btn btn-primary btn-circle">
+      <i class="material-icons">person</i>
+    </button>
+    <button type="button" class="btn btn-secondary btn-circle">
+      <i class="material-icons">mail_outline</i>
+    </button>
+    <button type="button" class="btn btn-success btn-circle">
+      <i class="material-icons">list</i>
+    </button>
+    <button type="button" class="btn btn-info btn-circle">
+      <i class="material-icons">notifications</i>
+    </button>
+    <button type="button" class="btn btn-warning btn-circle">
+      <i class="material-icons">chevron_right</i>
+    </button>
+    <button type="button" class="btn btn-danger btn-circle">
+      <i class="material-icons">home</i>
+    </button>
+    <hr>
+
+    <h6>Large Circle Buttons with Icon</h6>
+    <button type="button" class="btn btn-white btn-circle-large">
+      <i class="material-icons">email</i>
+    </button>
+    <button type="button" class="btn btn-primary btn-circle-large">
+      <i class="material-icons">person</i>
+    </button>
+    <button type="button" class="btn btn-secondary  btn-circle-large">
+      <i class="material-icons">mail_outline</i>
+    </button>
+    <button type="button" class="btn btn-success  btn-circle-large">
+      <i class="material-icons">list</i>
+    </button>
+    <button type="button" class="btn btn-info  btn-circle-large">
+      <i class="material-icons">notifications</i>
+    </button>
+    <button type="button" class="btn btn-warning  btn-circle-large">
+      <i class="material-icons">chevron_right</i>
+    </button>
+    <button type="button" class="btn btn-danger  btn-circle-large">
+      <i class="material-icons">home</i>
+    </button>
+  </div>
+</div>
+
+      </div>
+    </div>
+    <!-- Sidebar -->
+<div class="mdk-drawer mdk-js-drawer" id="default-drawer">
+  <div class="mdk-drawer__content ">
+    <div class="sidebar sidebar-left sidebar-light sidebar-transparent-sm-up sidebar-p-y">
+      <div class="sidebar-heading">Applications</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="student-dashboard.html">
+            <i class="sidebar-menu-icon material-icons">account_box</i> Student
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="instructor-dashboard.html">
+            <i class="sidebar-menu-icon material-icons">school</i> Instructor
+          </a>
+        </li>
+      </ul>
+      <!-- Components menu -->
+<div class="sidebar-heading">UI Components</div>
+<ul class="sidebar-menu">
+  <li class="sidebar-menu-item open">
+    <a class="sidebar-menu-button sidebar-js-collapse" href="#">
+      <i class="sidebar-menu-icon material-icons">tune</i> UI Components
+    </a>
+    <ul class="sidebar-submenu sm-condensed">
+      <li class="sidebar-menu-item active">
+        <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<!-- // END Components Menu -->
+    </div>
+  </div>
+</div>
+<!-- // END Sidebar -->
+  </div>
+
+  <!-- jQuery -->
+<script src="assets/vendor/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="assets/vendor/tether.min.js"></script>
+<script src="assets/vendor/bootstrap.min.js"></script>
+
+<!-- MDK -->
+<script src="assets/vendor/dom-factory.js"></script>
+<script src="assets/vendor/material-design-kit.js"></script>
+
+<!-- Sidebar Collapse -->
+<script src="assets/vendor/sidebar-collapse.js"></script>
+
+<!-- App JS -->
+<script src="assets/js/main.min.js"></script>
+
+  
+
+  
+
+  
+
+</body>
+
+<!-- Mirrored from learnplus.themekit.io/ui-buttons.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Mar 2017 07:18:59 GMT -->
+</html>

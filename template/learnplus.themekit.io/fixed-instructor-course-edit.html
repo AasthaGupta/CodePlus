@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from learnplus.themekit.io/fixed-instructor-course-edit.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Mar 2017 07:20:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Instructor - Edit course - Fixed layout</title>
+
+  <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+<meta name="robots" content="noindex">
+
+<!-- Material Design Icons  -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Roboto Web Font -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+<!-- MDK -->
+<link type="text/css" href="assets/vendor/material-design-kit.css" rel="stylesheet">
+
+<!-- Sidebar Collapse -->
+<link type="text/css" href="assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+<!-- App CSS -->
+<link type="text/css" href="assets/css/style.min.css" rel="stylesheet">
+
+  
+  <!-- Required by summernote -->
+  <link rel="stylesheet" href="../cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+  <!-- Bootstrap Datepicker -->
+  <link rel="stylesheet" href="examples/css/bootstrap-datepicker.min.css">
+  <!-- Summernote WYSIWYG -->
+  <link rel="stylesheet" href="examples/css/summernote.min.css">
+  <!-- Nestable -->
+  <link rel="stylesheet" href="examples/css/nestable.min.css">
+
+
+  
+
+</head>
+<body class="ls-top-navbar">
+
+  <!-- Navbar -->
+<nav class="navbar navbar-dark bg-primary navbar-full navbar-fixed-top">
+
+	<!-- Toggle sidebar -->
+	<button class="navbar-toggler" type="button" data-toggle="sidebar"></button>
+
+	<!-- Brand -->
+	<a href="fixed-instructor-dashboard.html" class="navbar-brand"><i class="material-icons">school</i> LearnPlus</a>
+
+	<ul class="nav navbar-nav hidden-sm-down">
+		<li class="nav-item">
+			<div class="nav-stats">$591 <small>GROSS</small></div>
+		</li>
+		<li class="nav-item">
+			<div class="nav-stats">$31 <small>TAXES</small></div>
+		</li>
+		<li class="nav-item">
+			<div class="nav-stats">$560 <small>NET</small></div>
+		</li>
+	</ul>
+
+	<div class="navbar-spacer"></div>
+	
+	<!-- Menu --> 
+	<ul class="nav navbar-nav hidden-sm-down">
+		<li class="nav-item">
+			<a class="nav-link" href="fixed-instructor-forum.html">Forum</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="fixed-instructor-help-center.html">Get Help</a>
+		</li>
+	</ul>
+
+	<!-- Menu -->
+	<ul class="nav navbar-nav">
+		<!-- User dropdown -->
+<li class="nav-item dropdown">
+  <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"><img src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle" width="40"></a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
+    <a class="dropdown-item" href="fixed-instructor-account-edit.html">
+      <i class="material-icons">edit</i> Edit Account
+    </a>
+    <a class="dropdown-item" href="fixed-instructor-profile.html">
+      <i class="material-icons">person</i> Public Profile
+    </a>
+    <a class="dropdown-item" href="guest-login.html">
+      <i class="material-icons">lock</i> Logout
+    </a>
+  </div>
+</li>
+<!-- // END User dropdown -->
+	</ul>
+</nav>
+<!-- // END Navbar -->
+  
+  <div class="container">
+    
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="fixed-instructor-dashboard.html">Home</a></li>
+  <li class="breadcrumb-item"><a href="fixed-instructor-courses.html">Courses</a></li>
+  <li class="breadcrumb-item active">Edit course</li>
+</ol>
+<div class="media">
+  <div class="media-body">
+    <h1 class="page-heading h2">
+      Edit Course
+    </h1>
+  </div>
+  <div class="media-right media-middle">
+    <a href="#" class="btn btn-success">SAVE</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Basic Information</h4>
+      </div>
+      <div class="card-block">
+          
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" placeholder="Write a title" value="Basics of Vue.js">
+        </div>
+        
+        <div class="form-group">
+          <label for="details">Description</label>
+          <div id="summernote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque necessitatibus distinctio adipisci eius, unde dignissimos maxime doloribus quisquam non harum?</div>  
+        </div>
+
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Lessons</h4>
+      </div>
+      <div class="card-block">
+        <p><a href="fixed-instructor-lesson-add.html" class="btn btn-primary">Add Lesson <i class="material-icons">add</i></a></p>
+        <div class="nestable" id="nestable-handles-primary">
+          <ul class="nestable-list">
+          <li class="nestable-item nestable-item-handle" data-id="2">
+            <div class="nestable-handle"><i class="material-icons">menu</i></div>
+            <div class="nestable-content">
+            <div class="media">
+              <div class="media-left media-middle">
+              <img src="assets/images/vuejs.png" alt="" width="100" class="rounded">
+              </div>
+              <div class="media-body media-middle">
+              <h5 class="card-title h6 mb-0">
+                <a href="fixed-instructor-lesson-add.html">Awesome Vue.js with SASS Processing</a>
+              </h5>
+              <small class="text-muted">updated 1 month ago</small>
+              </div>
+              <div class="media-right media-middle">
+                <a href="fixed-instructor-lesson-add.html" class="btn btn-white btn-sm"><i class="material-icons">edit</i></a>
+              </div>
+            </div>
+            </div>
+          </li>
+          <li class="nestable-item nestable-item-handle" data-id="1">
+            <div class="nestable-handle"><i class="material-icons">menu</i></div>
+            <div class="nestable-content">
+            <div class="media">
+              <div class="media-left media-middle">
+                <img src="assets/images/nodejs.png" alt="" width="100" class="rounded">  
+              </div>
+              <div class="media-body media-middle">
+                <h4 class="card-title h6 mb-0">
+                  <a href="fixed-instructor-lesson-add.html">Github Webhooks for Beginners</a>
+                </h4>
+                <small class="text-muted">updated 1 month ago</small>
+              </div>
+              <div class="media-right media-middle">
+                 <a href="fixed-instructor-lesson-add.html" class="btn btn-white btn-sm"><i class="material-icons">edit</i></a>
+              </div>
+            </div>
+            </div>
+          </li><li class="nestable-item nestable-item-handle" data-id="2">
+            <div class="nestable-handle"><i class="material-icons">menu</i></div>
+            <div class="nestable-content">
+            <div class="media">
+              <div class="media-left">
+              <img src="assets/images/gulp.png" alt="" width="100" class="rounded">
+              </div>
+              <div class="media-body">
+              <h4 class="card-title h6 mb-0">
+                <a href="fixed-instructor-lesson-add.html">Browserify: Writing Modular JavaScript</a>
+              </h4>
+              <small class="text-muted">updated 1 month ago</small>
+              </div>
+              <div class="media-right media-middle">
+              <a href="fixed-instructor-lesson-add.html" class="btn btn-white btn-sm"><i class="material-icons">edit</i></a>
+              </div>
+            </div>
+            </div>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" allowfullscreen=""></iframe>
+      </div>
+      <div class="card-block">
+        <input type="text" class="form-control" value="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" />
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Meta</h4>
+        <p class="card-subtitle">Extra Options </p>
+      </div>
+      
+      <form class="form-horizontal card-block">
+        <div class="form-group row">
+          <label for="select" class="col-sm-6 col-form-label">Category</label>
+          <div class="col-sm-6">
+            <select class="custom-select form-control">
+              <option value="#">HTML</option>
+              <option value="#">Angular JS</option>
+              <option value="#" selected>Vue.js</option>
+              <option value="#">CSS / LESS</option>
+              <option value="#">Design / Concept</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="duration" class="col-sm-6 col-form-label">Duration</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="No. of Days" value="10">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="start" class="col-sm-6 col-form-label">Start Date</label>
+          <div class="col-sm-6">
+            <input class="datepicker form-control" type="text" value="01/28/2016"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="end" class="col-sm-6 col-form-label">End Date</label>
+            <div class="col-sm-6">
+          <input class="datepicker form-control" type="text" value="01/28/2016"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Completion Badge</label>
+          <div>
+            <div data-toggle="buttons">
+              <label class="btn btn-white btn-circle active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> 
+                <i class="material-icons">person</i>
+              </label>
+              <label class="btn btn-white btn-circle">
+                <input type="radio" name="options" id="option2" autocomplete="off">
+                <i class="material-icons">star</i>
+              </label>
+              <label class="btn btn-white btn-circle">
+                <input type="radio" name="options" id="option3" autocomplete="off">
+                <i class="material-icons">shop</i>
+              </label>
+              <label class="btn btn-white btn-circle">
+                <input type="radio" name="options" id="option3" autocomplete="off">
+                <i class="material-icons">monetization_on</i>
+              </label>
+                <label class="btn btn-white btn-circle">
+                <input type="radio" name="options" id="option3" autocomplete="off">
+                <i class="material-icons">enhanced_encryption</i>
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editLesson">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      // Edit Lesson
+    </div>
+  </div>
+</div>
+
+    <div class="footer">
+      Copyright &copy; 2016 - <a href="http://themeforest.net/item/learnplus-learning-management-application/15287372?ref=mosaicpro">Purchase LearnPlus</a>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+<div class="mdk-drawer mdk-js-drawer" id="default-drawer">
+  <div class="mdk-drawer__content ls-top-navbar-xs-up">
+    <div class="sidebar sidebar-left sidebar-light bg-white sidebar-p-y">
+      <div class="sidebar-heading">APPLICATIONS</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-student-dashboard.html">
+            <i class="sidebar-menu-icon material-icons">account_box</i> Student
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-instructor-dashboard.html">
+            <i class="sidebar-menu-icon material-icons">school</i> Instructor
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-heading">Layout</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="instructor-course-edit.html">
+            <i class="sidebar-menu-icon material-icons">dashboard</i> Fluid Layout
+          </a>
+        </li>
+        <li class="sidebar-menu-item active">
+          <a class="sidebar-menu-button" href="fixed-instructor-course-edit.html">
+            <i class="sidebar-menu-icon material-icons">dashboard</i> Fixed Layout
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-heading">Instructor</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-instructor-courses.html">
+            <i class="sidebar-menu-icon material-icons">import_contacts</i> Course Manager
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-instructor-quizzes.html">
+            <i class="sidebar-menu-icon material-icons">help</i> Quiz Manager
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-instructor-profile.html">
+            <i class="sidebar-menu-icon material-icons">language</i> Public Profile
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-instructor-account-edit.html">
+            <i class="sidebar-menu-icon material-icons">account_box</i> Account Settings
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-instructor-messages.html">
+            <i class="sidebar-menu-icon material-icons">comment</i> Messages
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-instructor-earnings.html">
+            <i class="sidebar-menu-icon material-icons">trending_up</i> Earnings
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="fixed-instructor-statement.html">
+            <i class="sidebar-menu-icon material-icons">receipt</i> Statement
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="guest-login.html">
+            <i class="sidebar-menu-icon material-icons">lock_open</i> Logout
+          </a>
+        </li>
+      </ul>
+      <!-- Components menu -->
+<div class="sidebar-heading">UI Components</div>
+<ul class="sidebar-menu">
+  <li class="sidebar-menu-item">
+    <a class="sidebar-menu-button sidebar-js-collapse" href="#">
+      <i class="sidebar-menu-icon material-icons">tune</i> UI Components
+    </a>
+    <ul class="sidebar-submenu sm-condensed">
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<!-- // END Components Menu -->
+    </div>
+  </div>
+</div>
+
+<!-- // END Sidebar -->
+
+  <!-- jQuery -->
+<script src="assets/vendor/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="assets/vendor/tether.min.js"></script>
+<script src="assets/vendor/bootstrap.min.js"></script>
+
+<!-- MDK -->
+<script src="assets/vendor/dom-factory.js"></script>
+<script src="assets/vendor/material-design-kit.js"></script>
+
+<!-- Sidebar Collapse -->
+<script src="assets/vendor/sidebar-collapse.js"></script>
+
+<!-- App JS -->
+<script src="assets/js/main.min.js"></script>
+
+  
+  <!-- Vendor JS -->
+  <script src="assets/vendor/summernote.min.js"></script>
+  <script src="assets/vendor/bootstrap-datepicker.min.js"></script>
+  <script src="assets/vendor/jquery.nestable.js"></script>
+
+
+  
+  <!-- Init -->
+  <script src="examples/js/summernote.js"></script>
+  <script src="examples/js/date-time.js"></script>
+  <script src="examples/js/nestable.js"></script>
+
+
+  
+</body>
+
+<!-- Mirrored from learnplus.themekit.io/fixed-instructor-course-edit.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Mar 2017 07:20:15 GMT -->
+</html>
