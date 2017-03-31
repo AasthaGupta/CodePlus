@@ -63,8 +63,7 @@ def email_exists(email):
 def add(username,password,p_fname,p_lname,country,dob):
 	connection = sql_connect()
 	cursor = connection.cursor()
-	cursor.execute('')
-    	cur.execute("INSERT INTO person (username,password,p_fname,p_lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,,p_fname,p_lname,country,dob))
+    	cursor.execute("INSERT INTO person (username,password,p_fname,p_lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,,p_fname,p_lname,country,dob))
 	print "user added"
 	connection.commit()
 
