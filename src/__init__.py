@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-03-30 23:38:07
+# @Last Modified time: 2017-03-31 14:35:26
 
 
 
@@ -53,7 +53,7 @@ def logout():
 
 @app.errorhandler(404)
 def not_found(e):
-	return render_template('error.html'), 404
+	return render_template('404.html'),404
 
 database.sql_init()
 
