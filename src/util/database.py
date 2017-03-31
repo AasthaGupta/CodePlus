@@ -64,10 +64,7 @@ def add(username,password,p_fname,p_lname,country,dob):
 	connection = sql_connect()
 	cursor = connection.cursor()
 	cursor.execute('')
-    	connection = sql.connect("database.db")
-    	cur = con.cursor()
     	cur.execute("INSERT INTO person (username,password,p_fname,p_lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,,p_fname,p_lname,country,dob))
-    	connection.commit()
 	print "user added"
 	connection.commit()
 
