@@ -60,10 +60,11 @@ def email_exists(email):
 	cursor.execute('SELECT * FROM users WHERE email=?', email)
 	return cursor.fetchone() is not None
 
-def add(username,password,p_fname,p_lname,country,dob):
+def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocountry):
 	connection = sql_connect()
 	cursor = connection.cursor()
-    	cursor.execute("INSERT INTO person (username,password,p_fname,p_lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,p_fname,p_lname,country,dob))
+    	cursor.execute("INSERT INTO person (username,password,fname,lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,fname,lname,country,dob))
+	cursor.execute("INSERT INTO organisation (oname, otype, ocity, ocountry) VALUES (?,?,?,?)", (oname,otype,ocity,ocountry))
 	print "user added"
 	connection.commit()
 
