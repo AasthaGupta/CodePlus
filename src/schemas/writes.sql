@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS writes (
   q_code TEXT PRIMARY KEY NOT NULL,
-  username TEXT NOT NULL,  
+  username TEXT NOT NULL,
 );
 
 ALTER TABLE writes

@@ -1,0 +1,11 @@
+INSERT INTO solution (s_id, s_date, s_time, language, status) VALUES
+(1, '2015-04-30', '00:19:00', 'C', 'ACCEPTED'),
+(3, '2015-04-30', '13:10:00', 'C++', 'WRONG-ANSWER'),
+(4, '2015-04-29', '13:04:00', 'JAVA', 'ACCEPTED'),
+(5, '2015-04-30', '18:58:00', 'PYTHON', 'ACCEPTED'),
+(6, '2015-04-11', '08:00:00', 'C', 'ACCEPTED'),
+(7, '2015-04-30', '10:10:00', 'C', 'ACCEPTED'),
+(8, '2013-04-29', '12:12:00', 'JAVA', 'COMPILATION-ERROR'),
+(9, '2014-12-15', '21:18:00', 'PYTHON', 'ACCEPTED'),
+(10, '2012-10-13', '10:15:00', 'C++', 'WRONG-ANSWER'),
+(11, '2012-12-12', '12:13:00', 'PYTHON', 'ACCEPTED');
