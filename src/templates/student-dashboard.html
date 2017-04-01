@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from learnplus.themekit.io/student-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Mar 2017 07:18:23 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Student - Dashboard</title>
-
-  <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
-<meta name="robots" content="noindex">
+  <meta name="robots" content="noindex">
 
 <!-- Material Design Icons  -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -32,7 +28,7 @@
 	<button class="navbar-toggler" type="button" data-toggle="sidebar"></button>
 
 	<!-- Brand -->
-	<a href="dashboard" class="navbar-brand"><i class="material-icons">school</i> CodePlus</a>
+	<a href="{{url_for('.dashboard')}}" class="navbar-brand"><i class="material-icons">school</i> CodePlus</a>
 	
 	<!-- Search -->
 <!-- <form class="navbar-search-form hidden-sm-down">
@@ -114,8 +110,8 @@
       <div class="card-header bg-white">
         <div class="media">
           <div class="media-body">
-            <h4 class="card-title">Courses</h4>
-            <p class="card-subtitle">Your recent courses</p>
+            <h4 class="card-title">Submitted Solutions</h4>
+            <p class="card-subtitle">Your recent solutions</p>
           </div>
           <div class="media-right media-middle">
             <a class="btn btn-sm btn-primary-outline" href="student-my-courses.html">My courses</a>
@@ -160,7 +156,6 @@
                 <progress class="progress progress-warning mb-0" value="80" max="100" style="width:100px">80%</progress>
               </div>
             </div>
-          
           </div>
         </li>
       </ul>
@@ -169,8 +164,8 @@
       <div class="card-header bg-white">
         <div class="media">
           <div class="media-body">
-            <h4 class="card-title">Quizzes</h4>
-            <p class="card-subtitle">Your Performance</p>
+            <h4 class="card-title">Questions</h4>
+            <p class="card-subtitle">You authored</p>
           </div>
           <div class="media-right media-middle">
             <a class="btn btn-sm btn-primary-outline" href="#">Quiz results</a>

@@ -25,6 +25,11 @@
                     <i class="material-icons md-36 text-muted">lock</i>
                 </div>
             </div>
+            {% if error %}
+                <div class="text-xs-center">
+                    <strong> {{ error }} </strong>
+                </div>
+            {% endif %}
             <div class="card bg-transparent">
                 <div class="card-header bg-white text-xs-center">
                     <h4 class="card-title">Login</h4>

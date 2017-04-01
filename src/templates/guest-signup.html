@@ -28,8 +28,13 @@
                     <h4 class="card-title">Sign Up</h4>
                     <p class="card-subtitle">Create a new account</p>
                 </div>
+                {% if error %}
+                    <div class="text-xs-center">
+                        <strong> {{ error }} </strong>
+                    </div>
+                {% endif %}
                 <div class="p-2">
-                    <form action="register" method="post">
+                    <form action='{{url_for('register')}}'method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="First Name" name="fname">
                         </div>

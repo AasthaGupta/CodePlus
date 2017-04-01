@@ -40,14 +40,12 @@ def create_oj_database():
 	for inputfilename in glob.glob(os.path.join(path, '*.sql')):
 		inputFile=open(inputfilename,'r')
 		Query=inputFile.readline().rstrip("\n")
-		next(inputFile)
-
 		for line in inputFile:
 			line=line.rstrip(",;\n")
 			insertQuery=Query+line+";"
 			cursor.execute(insertQuery)
 		connection.commit()
-		print "Inserted values into",inputfilename[13:]
+		print "Inserted values into",inputfilename[13:-4]
 	print "Database created"
 
 def username_exists(username):
@@ -55,7 +53,7 @@ def username_exists(username):
 		return True
 	connection = sql_connect()
 	cursor = connection.cursor()
-	cursor.execute('SELECT * FROM users WHERE username=?', username)
+	cursor.execute('SELECT * FROM user WHERE username=?', username)
 	return cursor.fetchone() is not None
 
 def email_exists(email):
@@ -63,13 +61,13 @@ def email_exists(email):
 		return True
 	connection = sql_connect()
 	cursor = connection.cursor()
-	cursor.execute('SELECT * FROM users WHERE email=?', email)
+	cursor.execute('SELECT * FROM user WHERE email=?', email)
 	return cursor.fetchone() is not None
 
 def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocountry):
 	connection = sql_connect()
 	cursor = connection.cursor()
-    	cursor.execute("INSERT INTO person (username,password,fname,lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,fname,lname,country,dob))
+    	cursor.execute("INSERT INTO user (username,password,fname,lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,fname,lname,country,dob))
 	cursor.execute("INSERT INTO organisation (oname, otype, ocity, ocountry) VALUES (?,?,?,?)", (oname,otype,ocity,ocountry))
 	connection.commit()
 	print "user added"
@@ -79,7 +77,7 @@ def get_user(email, password):
 	connection = sql_connect()
 	cursor = connection.cursor()
 	t = (email, password,)
-	cursor.execute('SELECT * FROM students WHERE email=? AND password=?', t)
+	cursor.execute('SELECT * FROM user WHERE email=? AND password=?', t)
 	row = cursor.fetchone()
 	if row is None:
 		raise ValueError("Invalid Credentials")

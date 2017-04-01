@@ -30,7 +30,7 @@ def register(form):
 			raise ValueError('Username already taken')
 
 		if database.email_exist(email):
-			raise ValueError('email already registered')
+			raise ValueError('Email already registered')
 
 		database.add(name,email,username,password)
 		#add rest of the columns
