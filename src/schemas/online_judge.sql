@@ -1,10 +1,4 @@
-CREATE TABLE IF NOT EXISTS `online_judge` (
-  `domain` varchar(35) NOT NULL,
-  PRIMARY KEY (`domain`)
-) 
+CREATE TABLE IF NOT EXISTS online_judge (
+  domain TETX NOT NULL PRIMARY KEY
+) ;
 
-INSERT INTO `online_judge` (`domain`) VALUES
-('CODECHEF'),
-('CODEFORCES'),
-('SPOJ'),
-('TOPCODER');
