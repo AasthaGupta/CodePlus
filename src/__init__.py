@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-03-31 14:35:26
+# @Last Modified time: 2017-04-01 23:26:25
 
 
 
@@ -10,6 +10,8 @@ from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
 
 from util import assets ,database,functions
+
+database.sql_init()
 
 @app.route('/')
 @app.route('/index') #entry page for the website
@@ -34,7 +36,7 @@ def register():
 def login():
 	if request.method == 'POST':
 		result=request.form
-		status=functions.login(result)
+		status,userdata=functions.login(result)
 		if status['success']==True:
 			return render_template('student-dashboard.html')
 	return  redirect(url_for('index'))
@@ -54,8 +56,3 @@ def logout():
 @app.errorhandler(404)
 def not_found(e):
 	return render_template('404.html'),404
-
-database.sql_init()
-
-if __name__ == '__main__':
-	app.run(debug=True)

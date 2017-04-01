@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS solution
+(
+	s_id INTEGER PRIMARY KEY NOT NULL,
+	s_date DATE NOT NULL,
+	s_time TIME NOT NULL,
+	language TEXT NOT NULL,
+	status TEXT NOT NULL
+);

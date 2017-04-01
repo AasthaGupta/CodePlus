@@ -1,4 +1,3 @@
-
 INSERT INTO member_of (username, o_id) VALUES
 ('ayushj94', 13),
 ('gosaindhruv94', 13),

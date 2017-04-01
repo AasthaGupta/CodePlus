@@ -239,13 +239,11 @@ button:focus {
     color: #2B2D35
 }
 
-strong,
-b {
+strong,b {
     font-weight: 700
 }
 
-em,
-i {
+em,i {
     font-style: italic
 }
 

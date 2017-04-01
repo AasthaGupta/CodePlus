@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS online_judge
+(
+	domain TEXt NOT NULL PRIMARY KEY
+);
+

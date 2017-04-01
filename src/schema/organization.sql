@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS organisation
+(
+	o_id INTEGER  PRIMARY KEY NOT NULL,
+	o_name TEXT NOT NULL,
+	type TEXT NOT NULL,
+	o_city TEXT NOT NULL,
+	o_country TEXT NOT NULL
+);

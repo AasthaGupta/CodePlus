@@ -1,4 +1,0 @@
-CREATE TABLE IF NOT EXISTS question (
-  q_code TEXT PRIMARY KEY NOT NULL,
-  difficulty TEXT NOT NULL,
- ); 

@@ -7,4 +7,3 @@ INSERT INTO writes (q_code, username) VALUES
 ('Q2', 'mrinal94'),
 ('Q3', 'mrinal94'),
 ('Q5', 'sadul05');
-

@@ -13,5 +13,3 @@ INSERT INTO tags (q_code, tag) VALUES
 ('Q7', 'IMPLEMENT'),
 ('Q8', 'DP'),
 ('Q8', 'GREEDY');
-
-

@@ -30,19 +30,25 @@ def create_tables():
 		sqlFile.close()
 		cursor.executescript(sqlScript)
 	connection.commit()
+	print "Executed table schema."
 
 
 def create_oj_database():
 	connection = sql_connect()
 	cursor = connection.cursor()
-	cursor.execute('')
-	#to be done
-	#here we have to create tables and insert values into it
-	#using the files in src/database/create/
-	#files in create will have insert queries
-	#cursor.executescript() can be used for this
-	print "database created"
-	connection.commit()
+	path = 'src/database'
+	for inputfilename in glob.glob(os.path.join(path, '*.sql')):
+		inputFile=open(inputfilename,'r')
+		Query=inputFile.readline().rstrip("\n")
+		next(inputFile)
+
+		for line in inputFile:
+			line=line.rstrip(",;\n")
+			insertQuery=Query+line+";"
+			cursor.execute(insertQuery)
+		connection.commit()
+		print "Inserted values into",inputfilename[13:]
+	print "Database created"
 
 def username_exists(username):
 	if username is "" :
@@ -60,12 +66,12 @@ def email_exists(email):
 	cursor.execute('SELECT * FROM users WHERE email=?', email)
 	return cursor.fetchone() is not None
 
-def add(username,password,p_fname,p_lname,country,dob):
+def add(email,username,password,fname,lname,country,dob):
 	connection = sql_connect()
 	cursor = connection.cursor()
-    	cursor.execute("INSERT INTO person (username,password,p_fname,p_lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,p_fname,p_lname,country,dob))
-	print "user added"
+    	cursor.execute("INSERT INTO user (email,username,password,fname,lname,country,dob) VALUES (?,?,?,?,?.?)", (email,username,password,fname,lname,country,dob))
 	connection.commit()
+	print "user added"
 
 
 def get_user(email, password):

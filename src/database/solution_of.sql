@@ -1,5 +1,3 @@
-
-
 INSERT INTO solution_of (s_id, q_code) VALUES
 (1, 'Q1'),
 (3, 'Q1'),

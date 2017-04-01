@@ -2,12 +2,11 @@ from . import database
 
 def login(form):
 	status = { 'success' : True }
+	userdata=None
 	try:
 		email = form['email']
 		password = form['password']
-		row = database.get_user(email,password)
-		userdata=None
-		#use row data to populate userdata
+		userdata = database.get_user(email,password)
 	except Exception as e:
 		status['error'] = str(e)
 		status['success'] = False
