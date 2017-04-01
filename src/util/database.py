@@ -37,16 +37,43 @@ def create_oj_database():
 	cursor = connection.cursor()
 	cursor.execute('')
 	#to be done
+	#here we have to create tables and insert values into it
+	#using the files in src/database/create/
+	#files in create will have insert queries
+	#cursor.executescript() can be used for this
 	print "database created"
 	connection.commit()
 
+def username_exists(username):
+	if username is "" :
+		return True
+	connection = sql_connect()
+	cursor = connection.cursor()
+	cursor.execute('SELECT * FROM users WHERE username=?', username)
+	return cursor.fetchone() is not None
 
-def get_student(email, password):
+def email_exists(email):
+	if email is "" :
+		return True
+	connection = sql_connect()
+	cursor = connection.cursor()
+	cursor.execute('SELECT * FROM users WHERE email=?', email)
+	return cursor.fetchone() is not None
+
+def add(username,password,p_fname,p_lname,country,dob):
+	connection = sql_connect()
+	cursor = connection.cursor()
+    	cursor.execute("INSERT INTO person (username,password,p_fname,p_lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,,p_fname,p_lname,country,dob))
+	print "user added"
+	connection.commit()
+
+
+def get_user(email, password):
 	connection = sql_connect()
 	cursor = connection.cursor()
 	t = (email, password,)
-	cursor.execute('SELECT uid FROM students WHERE email=? AND password=?', t)
+	cursor.execute('SELECT * FROM students WHERE email=? AND password=?', t)
 	row = cursor.fetchone()
 	if row is None:
 		raise ValueError("Invalid Credentials")
-	return row[0]
+	return row
