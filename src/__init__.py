@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-02 10:38:01
+# @Last Modified time: 2017-04-02 12:19:41
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -14,7 +14,7 @@ from util import assets ,database,functions
 @app.route('/index') #entry page for the website
 def index():
 	if 'email' in session:
-		email = session['email']
+		#email = session['email']
 		#print "You are already logged in as %s" %email 
 		return redirect(url_for('.dashboard'))
 	error = request.args.get('error')
@@ -42,10 +42,10 @@ def login():
 	status = None
 	error = None
 	if request.method == 'POST':
-		session['email'] = request.form['email']
 		result=request.form
-		status,userdata=functions.login(result)
+		status=functions.login(result)
 		if status['success']==True:
+			session['email'] = request.form['email']
 			return redirect(url_for('.dashboard'))
 		error="Error: "+status['error']
 	return redirect(url_for('.index',error=error))
@@ -54,20 +54,24 @@ def login():
 
 @app.route('/dashboard/', methods=['POST', 'GET'])
 def dashboard():
-	return render_template('student-dashboard.html')
+	if 'email' in session:
+		email=session['email']
+		userdata=functions.userInfo(email)
+	else:
+		return render_template('404.html'),404
+	return render_template('student-dashboard.html',userdata=userdata)
 
 @app.route('/logout/')
 def logout():
 	if 'email' in session:
 		session.pop('email', None)
-		#session.pop('logged', None)
-		#session.pop('username', None)
-	return render_template('index.html')
+	return redirect(url_for('.index',error=None))
 
 @app.errorhandler(404)
 def not_found(e):
 	return render_template('404.html'),404
 
 database.sql_init()
+
 if __name__ == '__main__':
 	app.run(debug=True)
