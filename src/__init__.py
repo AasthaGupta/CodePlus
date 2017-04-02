@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-02 12:25:41
+# @Last Modified time: 2017-04-02 12:28:22
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -42,7 +42,6 @@ def login():
 	status = None
 	error = None
 	if request.method == 'POST':
-		session['email'] = request.form['email']
 		result=request.form
 		status=functions.login(result)
 		if status['success']==True:
