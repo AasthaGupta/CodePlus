@@ -6,12 +6,17 @@
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
+app.secret_key = 'fghCXsdRETYulko'
 
 from util import assets ,database,functions
 
 @app.route('/')
 @app.route('/index') #entry page for the website
 def index():
+	if 'email' in session:
+		email = session['email']
+		#print "You are already logged in as %s" %email 
+		return redirect(url_for('.dashboard'))
 	error = request.args.get('error')
 	return render_template('guest-login.html',error=error)
 
@@ -37,6 +42,7 @@ def login():
 	status = None
 	error = None
 	if request.method == 'POST':
+		session['email'] = request.form['email']
 		result=request.form
 		status,userdata=functions.login(result)
 		if status['success']==True:
@@ -45,16 +51,17 @@ def login():
 	return redirect(url_for('.index',error=error))
 
 
+
 @app.route('/dashboard/', methods=['POST', 'GET'])
 def dashboard():
 	return render_template('student-dashboard.html')
 
 @app.route('/logout/')
 def logout():
-	if 'logged' in session:
-		session.pop('user-email', None)
-		session.pop('logged', None)
-		session.pop('username', None)
+	if 'email' in session:
+		session.pop('email', None)
+		#session.pop('logged', None)
+		#session.pop('username', None)
 	return render_template('index.html')
 
 @app.errorhandler(404)
