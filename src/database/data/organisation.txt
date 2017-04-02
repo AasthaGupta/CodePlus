@@ -1,4 +1,4 @@
-INSERT INTO organisation (o_id, oname, type, ocity, ocountry) VALUES
+INSERT INTO organisation (o_id, oname, otype, ocity, ocountry) VALUES
 (13, 'SAMSUNG', 'COMPANY', 'BANGALORE', 'INDIA'),
 (14, 'GOOGLE', 'COMPANY', 'SANFRANCISCO', 'USA'),
 (15, 'NSIT', 'INSTITUITION', 'DELHI', 'INDIA');

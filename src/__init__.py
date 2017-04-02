@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-02 04:49:37
+# @Last Modified time: 2017-04-02 10:38:01
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -26,10 +26,10 @@ def register():
 		result=request.form
 		status=functions.register(result)
 		if status['success']== True :
-			error="Registered Successfully!!Please login."
+			error="Registered Successfully!! Please login."
 			return  redirect(url_for('index',error=error))
 		else:
-			error= "Error: "+status['error']
+			error= "Error: " + status['error']
 			return redirect(url_for('signup',error=error))
 
 @app.route('/login/', methods=['POST'])

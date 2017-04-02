@@ -16,26 +16,34 @@ def login(form):
 def register(form):
 	status = {'success' : True}
 	try:
-		name=form['name']
+		fname=form['fname']
+		lname=form['lname']
+		email=form['email']
 		username=form['username']
 		password=form['password']
 		password2=form['password2']
-		email=form['email']
-		#add rest of the fields
+		country=form['country']
+		dob=form['dob']
+		oname=form['oname']
+		otype=form['otype']
+		ocity=form['ocity']
+		ocountry=form['ocountry']
+		print"taken form data"
+
+
+		if database.username_exists(username):
+			raise ValueError('Username already taken')
+
+		if database.email_exists(email):
+			raise ValueError('Email already registered')
 
 		if password != password2:
 			raise ValueError('Password does not match')
 
-		if database.username_exist(username):
-			raise ValueError('Username already taken')
-
-		if database.email_exist(email):
-			raise ValueError('Email already registered')
-
-		database.add(name,email,username,password)
-		#add rest of the columns
+		database.add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocountry)
 
 	except Exception as e:
 		status['error'] = str(e)
 		status['success'] = False
+
 	return status

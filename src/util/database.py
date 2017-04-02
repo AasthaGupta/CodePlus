@@ -53,7 +53,8 @@ def username_exists(username):
 		return True
 	connection = sql_connect()
 	cursor = connection.cursor()
-	cursor.execute('SELECT * FROM user WHERE username=?', username)
+	values=(username,)
+	cursor.execute('SELECT * FROM user WHERE username=?', values)
 	return cursor.fetchone() is not None
 
 def email_exists(email):
@@ -61,14 +62,20 @@ def email_exists(email):
 		return True
 	connection = sql_connect()
 	cursor = connection.cursor()
-	cursor.execute('SELECT * FROM user WHERE email=?', email)
+	values=(email,)
+	cursor.execute('SELECT * FROM user WHERE email=?', values)
 	return cursor.fetchone() is not None
 
 def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocountry):
 	connection = sql_connect()
 	cursor = connection.cursor()
-    	cursor.execute("INSERT INTO user (username,password,fname,lname,country,dob) VALUES (?,?,?,?,?.?)", (username,password,fname,lname,country,dob))
-	cursor.execute("INSERT INTO organisation (oname, otype, ocity, ocountry) VALUES (?,?,?,?)", (oname,otype,ocity,ocountry))
+	userInfo = (email,username,password,fname,lname,country,dob,)
+	orgInfo = (oname,otype,ocity,ocountry,)
+	print userInfo
+	cursor.execute("INSERT INTO user (email,username,password,fname,lname,country,dob) VALUES (?,?,?,?,?,?,?)", userInfo)
+	print "added into table user"
+	cursor.execute("INSERT INTO organisation (oname, otype, ocity, ocountry) VALUES (?,?,?,?)", orgInfo)
+	print "added into table organisation"
 	connection.commit()
 	print "user added"
 
@@ -76,8 +83,8 @@ def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocount
 def get_user(email, password):
 	connection = sql_connect()
 	cursor = connection.cursor()
-	t = (email, password,)
-	cursor.execute('SELECT * FROM user WHERE email=? AND password=?', t)
+	values = (email, password,)
+	cursor.execute('SELECT * FROM user WHERE email=? AND password=?', values)
 	row = cursor.fetchone()
 	if row is None:
 		raise ValueError("Invalid Credentials")

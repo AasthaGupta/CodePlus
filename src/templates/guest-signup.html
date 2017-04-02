@@ -34,7 +34,7 @@
                     </div>
                 {% endif %}
                 <div class="p-2">
-                    <form action='{{url_for('register')}}'method="post">
+                    <form action='/register/'method='post'>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="First Name" name="fname">
                         </div>
@@ -62,13 +62,14 @@
                         <h5>Organisation Details</h5>
                         <br>
                         <div class="form-group">
-                            <form class="form-control">
-                                <input type="radio" value="Institution" name="otype"> Institution
-                                <input type="radio" value="Company" name="otype"> Company
-                            </form>
+                            <input type="radio" value="Institution" name="otype"> Institution
+                            <input type="radio" value="Company" name="otype"> Company
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Name" name="oname">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="City" name="ocity">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Country" name="ocountry">
