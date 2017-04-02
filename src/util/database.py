@@ -36,8 +36,8 @@ def create_tables():
 def create_oj_database():
 	connection = sql_connect()
 	cursor = connection.cursor()
-	path = 'src/database'
-	for inputfilename in glob.glob(os.path.join(path, '*.sql')):
+	path = 'src/database/data'
+	for inputfilename in glob.glob(os.path.join(path, '*.txt')):
 		inputFile=open(inputfilename,'r')
 		Query=inputFile.readline().rstrip("\n")
 		for line in inputFile:
@@ -45,7 +45,7 @@ def create_oj_database():
 			insertQuery=Query+line+";"
 			cursor.execute(insertQuery)
 		connection.commit()
-		print "Inserted values into",inputfilename[13:-4]
+		print "Inserted values into",inputfilename[18:-4]
 	print "Database created"
 
 def username_exists(username):
