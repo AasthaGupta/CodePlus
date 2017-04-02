@@ -36,47 +36,47 @@
                 <div class="p-2">
                     <form action='/register/'method='post'>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name" name="fname">
+                            <input type="text" class="form-control" placeholder="First Name" name="fname" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name" name="lname">
+                            <input type="text" class="form-control" placeholder="Last Name" name="lname" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" name="email">
+                            <input type="email" class="form-control" placeholder="Email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username" name="username">
+                            <input type="text" class="form-control" placeholder="Username" name="username" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" name="password">
+                            <input type="password" class="form-control" placeholder="Password" name="password" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
+                            <input type="password" class="form-control" placeholder="Confirm Password" name="password2" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Country" name="country">
+                            <input type="text" class="form-control" placeholder="Country" name="country" required>
                         </div>
                         <div class="form-group">
-                            <input type="date" class="form-control" name="dob">
+                            <input type="date" class="form-control" name="dob" required>
                         </div>
                         <h5>Organisation Details</h5>
                         <br>
                         <div class="form-group">
-                            <input type="radio" value="Institution" name="otype"> Institution
+                            <input type="radio" value="Institution" name="otype" checked> Institution
                             <input type="radio" value="Company" name="otype"> Company
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name" name="oname">
+                            <input type="text" class="form-control" placeholder="Name" name="oname" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="City" name="ocity">
+                            <input type="text" class="form-control" placeholder="City" name="ocity" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Country" name="ocountry">
+                            <input type="text" class="form-control" placeholder="Country" name="ocountry" required>
                         </div>
                         <div class="form-group text-xs-center">
                             <label class="custom-control custom-checkbox m-0">
-                                <input type="checkbox" class="custom-control-input" checked>
+                                <input type="checkbox" class="custom-control-input" checked required>
                                 <span class="custom-control-indicator"></span> I agree to the Terms of Use.
                             </label>
                         </div>
