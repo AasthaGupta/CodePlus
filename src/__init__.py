@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-02 12:19:41
+# @Last Modified time: 2017-04-02 12:25:41
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -15,7 +15,7 @@ from util import assets ,database,functions
 def index():
 	if 'email' in session:
 		#email = session['email']
-		#print "You are already logged in as %s" %email 
+		#print "You are already logged in as %s" %email
 		return redirect(url_for('.dashboard'))
 	error = request.args.get('error')
 	return render_template('guest-login.html',error=error)
@@ -42,6 +42,7 @@ def login():
 	status = None
 	error = None
 	if request.method == 'POST':
+		session['email'] = request.form['email']
 		result=request.form
 		status=functions.login(result)
 		if status['success']==True:
