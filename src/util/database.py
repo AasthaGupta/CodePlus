@@ -80,7 +80,17 @@ def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocount
 	print "user added"
 
 
-def get_user(email):
+def get_user(email, password):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	values = (email,password,)
+	cursor.execute('SELECT * FROM user WHERE email=? and password=?', values)
+	row = cursor.fetchone()
+	if row is None:
+		raise ValueError("Invalid Credentials")
+	return row
+
+def get_user_by_email(email):
 	connection = sql_connect()
 	cursor = connection.cursor()
 	values = (email,)

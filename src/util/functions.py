@@ -6,10 +6,11 @@ def login(form):
 	try:
 		email = form['email']
 		password = form['password']
+		userdata = database.get_user(email, password)
 	except Exception as e:
 		status['error'] = str(e)
 		status['success'] = False
-	return status
+	return status,userdata
 
 
 def register(form):
@@ -47,5 +48,5 @@ def register(form):
 	return status
 
 def userInfo(email):
-	userdata = database.get_user(email)
+	userdata = database.get_user_by_email(email)
 	return userdata
