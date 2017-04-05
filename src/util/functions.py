@@ -1,4 +1,6 @@
 from . import database
+import datetime 
+import random 
 
 def login(form):
 	status = { 'success' : True }
@@ -11,6 +13,22 @@ def login(form):
 		status['error'] = str(e)
 		status['success'] = False
 	return status,userdata
+
+def submission(form):
+	status = { 'success' : True }
+	try:
+		q_code = form['qcode']
+		language = form['language']
+		s_time = datetime.datetime.now().time()
+		s_date = datetime.datetime.now().date()
+		arr = ["WA","AC","TLE"]
+		x = random.randrange(0,3);
+		status = arr[x]
+		database.addsub(q_code,language,s_time,s_date,status)
+	except Exception as e:
+		status['error'] = str(e)
+		status['success'] = False
+		
 
 
 def register(form):

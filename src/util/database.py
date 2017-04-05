@@ -79,6 +79,19 @@ def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocount
 	connection.commit()
 	print "user added"
 
+def addsub(q_code, language, s_time, s_date, status):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	subInfo = (s_date, s_time, language, status)
+	print "submission info"
+	print subInfo
+	cursor.execute("INSERT INTO solution ( sdate, stime, language, status ) VALUES (?,?,?,?)", subInfo)
+	cursor.execute("INSERT INTO solution_of ( q_code ) VALUES (?)", q_code)
+	connection.commit()
+	print "submission added"
+	
+	
+
 
 def get_user(email, password):
 	connection = sql_connect()

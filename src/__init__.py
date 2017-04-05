@@ -45,6 +45,25 @@ def signup():
 	return render_template('signup.html',error=error)
 
 
+
+@app.route('/dashboard/submission/', methods=['POST','GET'])
+def submission():
+	msg=None
+	if request.method == 'POST':
+		result=request.form
+		status=functions.submission(result)
+		if status['success']== True :
+			msg="Submitted Successfully!"
+			return  redirect(url_for('submission',message=msg))
+		else:
+			msg= "Error: " + status['error']
+
+	return render_template('submission.html',message=msg)
+
+
+
+
+
 @app.route('/dashboard/', methods=['POST', 'GET'])
 def dashboard():
 	if 'email' in session:
