@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-04 02:57:01
+# @Last Modified time: 2017-04-06 09:53:11
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -48,17 +48,18 @@ def signup():
 
 @app.route('/dashboard/submission/', methods=['POST','GET'])
 def submission():
-	msg=None
-	if request.method == 'POST':
-		result=request.form
-		status=functions.submission(result)
-		if status['success']== True :
-			msg="Submitted Successfully!"
-			return  redirect(url_for('submission',message=msg))
-		else:
-			msg= "Error: " + status['error']
-
-	return render_template('submission.html',message=msg)
+	if 'email' in session:
+		msg=None
+		if request.method == 'POST':
+			result=request.form
+			status=functions.submission(result)
+			if status['success'] == True :
+				msg = status['status']
+			else:
+				msg= "Error: " + status['error']
+		return render_template('submission.html',message=msg)
+	else:
+		return render_template('404.html'),404
 
 
 

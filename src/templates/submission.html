@@ -6,28 +6,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Submit a Solution</title>
     <meta name="robots" content="noindex">
     <!-- Material Design Icons  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Roboto Web Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    {% assets "_css" %}
-      <link rel="stylesheet" href="{{ ASSET_URL }}" />
-    {% endassets %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet"> {% assets "_css" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}" /> {% endassets %}
 </head>
-<body class="submission">
+
+<body>
     <div class="row">
         <div class="col-sm-8 push-sm-1 col-md-4 push-md-4 col-lg-4 push-lg-4">
             <div class="text-xs-center m-2">
                 <div class="icon-block rounded-circle">
-                    <i class="material-icons md-36 text-muted">lock</i>
+                    <i class="material-icons md-36 text-muted">edit</i>
                 </div>
             </div>
             {% if message %}
-                <div class="text-xs-center">
-                    <strong> {{ message }} </strong>
-                </div>
+            <div class="alert alert-warning text-xs-center" role="alert">
+                <strong>{{ message }}</strong>
+            </div>
             {% endif %}
             <div class="card bg-transparent">
                 <div class="card-header bg-white text-xs-center">
@@ -35,39 +34,40 @@
                     <p class="card-subtitle">Enter the details: </p>
                 </div>
                 <div class="p-2">
-                    <form action='submission' method='post'>
+                    <form action='.' method='post'>
                         <div class="form-group">
                             <input type="number" class="form-control" placeholder="Question Code" name="qcode" required>
                         </div>
                         <div class="form-group">
-                            <select name="language" class="form-control" placeholder="Language">
-  <option value="C++">C++</option>
-  <option value="C">C</option>
-  <option value="JAVA">JAVA</option>
-  <option value="ADA">ADA</option>
-  <option value="Python">Python</option>
-</select>
-
+                            <select name="language" class="form-control">
+                                <option value="C++">C++</option>
+                                <option value="C">C</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="ADA">ADA</option>
+                                <option value="Python">Python</option>
+                            </select>
                         </div>
-                      
-                      <div class="form-group">
-    <textarea rows = "15" cols = "50" name="message" type="text" id="input-message" placeholder="Paste Code Here"></textarea>
-  </div> 
-
+                        <div class="form-group">
+                            <textarea class="form-control" rows="15" name="message" type="text" id="code" placeholder="Paste Code Here" required></textarea>
+                        </div>
                         <div class="form-group ">
-                            <button type="submit" class="btn  btn-primary btn-block">
-                                <span class="btn-block-text">Submit Solution</span>
+                            <span class="btn-block-text">
+                            <button type="reset" value="Reset" class="btn  btn-primary">
+                                Reset
                             </button>
+                            <button type="submit" class="btn btn-success">
+                                <i class="material-icons btn__icon--right">send</i>
+                                Submit
+                            </button>
+                            </span>
                         </div>
-                        
                     </form>
                 </div>
-                
             </div>
         </div>
     </div>
     {% assets "_js" %}
-      <script src="{{ ASSET_URL }}" type="text/javascript"></script>
+    <script src="{{ ASSET_URL }}" type="text/javascript"></script>
     {% endassets %}
 </body>
 
