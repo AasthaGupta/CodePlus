@@ -1,5 +1,6 @@
 from . import database
 from datetime import datetime
+from hashlib import md5
 import random
 
 def login(form):
@@ -7,7 +8,7 @@ def login(form):
 	userdata=None
 	try:
 		email = form['email']
-		password = form['password']
+		password = md5(form['password']).hexdigest()
 		row = database.get_user(email, password)
 		email, username, password, fname, lname, country, dob = row
 		columns = ('email', 'username', 'password', 'fname', 'lname', 'country', 'dob',)
@@ -67,6 +68,7 @@ def register(form):
 		if password != password2:
 			raise ValueError('Password does not match')
 
+		password = md5(password).hexdigest()
 		database.add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocountry)
 
 	except Exception as e:

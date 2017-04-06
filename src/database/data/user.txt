@@ -1,8 +1,8 @@
 INSERT INTO user (email, username, password, fname, lname, country, dob) VALUES
-('admin@gmail.com','admin', 'pass123', 'admin', 'admin', 'INDIA', '2000-02-01'),
-('aman@gmail.com','amanj94', 'asdf', 'AMAN', 'JAIN', 'RUSSIA', '1998-02-05'),
-('ayush@gmail.com','ayushj94', '123', 'AYUSH', 'JAIN', 'INDIA', '1994-10-27'),
-('gosain@gmail.com','gosaindhruv94', '1234', 'DHRUV', 'GOSAIN', 'INDIA', '1993-10-12'),
-('garvit@gmail.com','jgarvit94', '1980', 'GARVIT', 'JAIN', 'INDIA', '1994-01-01'),
-('mrinal@gmail.com','mrinal94', 'bestcoder', 'MRINAL', 'AHLAWAT', 'CHINA', '1995-09-15'),
-('sadul@gmail.com','sadul05', 'hack', 'SADUL', 'MEHTA', 'INDIA', '2000-10-23')
+('admin@gmail.com','admin', '32250170a0dca92d53ec9624f336ca24', 'admin', 'admin', 'INDIA', '2000-02-01'),
+('aman@gmail.com','amanj94', '32250170a0dca92d53ec9624f336ca24', 'AMAN', 'JAIN', 'RUSSIA', '1998-02-05'),
+('ayush@gmail.com','ayushj94', '32250170a0dca92d53ec9624f336ca24', 'AYUSH', 'JAIN', 'INDIA', '1994-10-27'),
+('gosain@gmail.com','gosaindhruv94', '32250170a0dca92d53ec9624f336ca24', 'DHRUV', 'GOSAIN', 'INDIA', '1993-10-12'),
+('garvit@gmail.com','jgarvit94', '32250170a0dca92d53ec9624f336ca24', 'GARVIT', 'JAIN', 'INDIA', '1994-01-01'),
+('mrinal@gmail.com','mrinal94', '32250170a0dca92d53ec9624f336ca24', 'MRINAL', 'AHLAWAT', 'CHINA', '1995-09-15'),
+('sadul@gmail.com','sadul05', '32250170a0dca92d53ec9624f336ca24', 'SADUL', 'MEHTA', 'INDIA', '2000-10-23')
