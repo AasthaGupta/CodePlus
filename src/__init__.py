@@ -2,13 +2,13 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-06 09:53:11
+# @Last Modified time: 2017-04-06 12:50:39
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
 app.secret_key = 'fghCXsdRETYulko'
 
-from util import assets ,database,functions
+from util import assets, database, functions
 
 @app.route('/')
 @app.route('/index', methods=['POST','GET']) #entry page for the website
@@ -20,8 +20,9 @@ def index():
 		status,userdata=functions.login(result)
 		if status['success']==True:
 			session['email'] = request.form['email']
-			return render_template('student-dashboard.html',userdata=userdata)
-		msg = "Error: " + status['error']
+			session['user']=userdata
+		else:
+			msg = "Error: " + status['error']
 	else:
 		msg = request.args.get('message', None)
 
@@ -44,6 +45,13 @@ def signup():
 
 	return render_template('signup.html',error=error)
 
+@app.route('/dashboard/', methods=['GET'])
+def dashboard():
+	if 'email' in session:
+		userdata=session['user']
+		return render_template('student-dashboard.html',userdata=userdata)
+	else:
+		return render_template('404.html'),404
 
 
 @app.route('/dashboard/submission/', methods=['POST','GET'])
@@ -61,18 +69,6 @@ def submission():
 	else:
 		return render_template('404.html'),404
 
-
-
-
-
-@app.route('/dashboard/', methods=['POST', 'GET'])
-def dashboard():
-	if 'email' in session:
-		email=session['email']
-		userdata=functions.userInfo(email)
-	else:
-		return render_template('404.html'),404
-	return render_template('student-dashboard.html',userdata=userdata)
 
 @app.route('/logout/')
 def logout():

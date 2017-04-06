@@ -8,7 +8,12 @@ def login(form):
 	try:
 		email = form['email']
 		password = form['password']
-		userdata = database.get_user(email, password)
+		row = database.get_user(email, password)
+		email, username, password, fname, lname, country, dob = row
+		columns = ('email', 'username', 'password', 'fname', 'lname', 'country', 'dob',)
+		userdata={}
+		for k in columns:
+			userdata[k]=eval(k)
 	except Exception as e:
 		status['error'] = str(e)
 		status['success'] = False
