@@ -90,7 +90,7 @@ def submission():
 		return render_template('404.html'),404
 	
 @app.route('/dashboard/question/', methods=['POST','GET'])
-def submission():
+def question():
 	if 'email' in session:
 		msg=None
 		if request.method == 'POST':
