@@ -1,5 +1,7 @@
 CREATE TABLE IF NOT EXISTS question
 (
-	q_code TEXT PRIMARY KEY NOT NULL,
-	difficulty TEXT NOT NULL
+	q_code INTEGER PRIMARY KEY NOT NULL,
+	q_name TEXT NOT NULL,
+	difficulty INTEGER NOT NULL,
+	link TEXT NOT NULL
 );

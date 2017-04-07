@@ -1,9 +1,10 @@
-INSERT INTO question (q_code, difficulty) VALUES
-('Q1', 'EASY'),
-('Q2', 'EXPERT'),
-('Q3', 'HARD'),
-('Q4', 'MEDIUM'),
-('Q5', 'EXPERT'),
-('Q6', 'HARD'),
-('Q7', 'EXPERT'),
-('Q8', 'EXPERT');
+INSERT INTO question (q_name, difficulty, link) VALUES
+('Rectangles Perimeter', 1,"http://www.spoj.com/problems/MMAXPER/"),
+('Homer Simpson', 1, "https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1406"),
+('Adjacent Bit Counts', 1, "http://www.spoj.com/problems/GNYR09F/"),
+('Walking on the Safe Sid', 2, "https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=766"),
+('Restoring Password', 2, "http://codeforces.com/problemset/problem/94/A"),
+('Street', 2, "http://www.spoj.com/problems/STREET/"),
+('2048', 8, "http://codeforces.com/problemset/problem/413/D"),
+('LCS Again', 8, "http://codeforces.com/problemset/problem/578/D"),
+('Dot', 8, "http://codeforces.com/problemset/problem/69/D");
