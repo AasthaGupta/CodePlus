@@ -79,16 +79,16 @@ def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocount
 	connection.commit()
 	print "user added"
 
-def updateValue(fname,lname,email,username,country,dob,oid,oname,otype,ocity,ocountry):
+def updateUser(fname,lname,email,username,country,dob,oid,oname,otype,ocity,ocountry):
 	connection = sql_connect()
 	cursor = connection.cursor()
-	
+
 	userInfo = (fname,lname,country,dob,email,)
 	orgInfo = (oname,otype,ocity,ocountry,oid,)
 	print userInfo
-	sql1 = "UPDATE user SET fname = ?, lname = ?, country = ?, dob = ?, password = ? WHERE email = ? "
-	sql2 = "UPDATE organisation SET (oname, otype, ocity, ocountry) = (?,?,?,?) WHERE o_id = ?"
-	
+	sql1 = "UPDATE user SET fname = ?, lname = ?, country = ?, dob = ? WHERE email = ? "
+	sql2 = "UPDATE organisation SET oname = ?, otype = ?, ocity = ?, ocountry = ? WHERE o_id = ? "
+
 	cursor.execute(sql1, userInfo)
 	print "added into table user"
 	cursor.execute(sql2, orgInfo)
@@ -106,7 +106,7 @@ def addSubmission(q_code, language, s_time, s_date, status):
 	connection.commit()
 	print "submission added"
 
-def get_o_id(username):
+def get_oid(username):
 
 	connection = sql_connect()
 	cursor = connection.cursor()
@@ -115,7 +115,7 @@ def get_o_id(username):
 	row = cursor.fetchone()
 	if row is None:
 		raise ValueError("Invalid username")
-	return row
+	return row[0]
 
 def get_user(email, password):
 	connection = sql_connect()

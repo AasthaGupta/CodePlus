@@ -3,8 +3,6 @@ from datetime import datetime
 from hashlib import md5
 import random
 
-	  	
-
 
 def login(form):
 	status = { 'success' : True }
@@ -14,12 +12,14 @@ def login(form):
 		password = md5(form['password']).hexdigest()
 		row = database.get_user(email, password)
 		email, username, password, fname, lname, country, dob = row
-		o_id = database.get_o_id(username)
-		row2 = database.get_user_organisation(o_id[0])
-		o_id,oname,otype,ocity,ocountry = row2
-		columns = ('email', 'username', 'password', 'fname', 'lname', 'country', 'dob','o_id','oname','otype','ocity','ocountry')
+
+		o_id = database.get_oid(username)
+
+		row2 = database.get_user_organisation(o_id)
+		o_id, oname, otype, ocity, ocountry = row2
+
+		columns = ('email', 'username', 'password', 'fname', 'lname', 'country', 'dob', 'o_id','oname','otype','ocity','ocountry')
 		userdata={}
-		
 		for k in columns:
 			userdata[k]=eval(k)
 	except Exception as e:
@@ -87,9 +87,8 @@ def register(form):
 
 def updateAccount(form):
 	status = {'success' : True}
+	userdata = None
 	try:
-		oid = get_o_id(username)
-		print oid
 		fname=form['fname']
 		lname=form['lname']
 		email=form['email']
@@ -100,14 +99,25 @@ def updateAccount(form):
 		otype=form['otype']
 		ocity=form['ocity']
 		ocountry=form['ocountry']
-		print"taken form data"
-		database.updateValue(fname,lname,email,username,country,dob,o_id,oname,otype,ocity,ocountry)
+		o_id = database.get_oid(username)
+		database.updateUser(fname,lname,email,username,country,dob,o_id,oname,otype,ocity,ocountry)
 
+		# to update session
+		row = database.get_user_by_email(email)
+		email, username, password, fname, lname, country, dob = row
+
+		row2 = database.get_user_organisation(o_id)
+		o_id, oname, otype, ocity, ocountry = row2
+
+		columns = ('email', 'username', 'password', 'fname', 'lname', 'country', 'dob', 'o_id','oname','otype','ocity','ocountry')
+		userdata={}
+		for k in columns:
+			userdata[k]=eval(k)
 	except Exception as e:
 		status['error'] = str(e)
 		status['success'] = False
 
-	return status
+	return status, userdata
 
 def userInfo(email):
 	userdata = database.get_user_by_email(email)
