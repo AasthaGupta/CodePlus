@@ -1,4 +1,5 @@
 INSERT INTO member_of (username, o_id) VALUES
+('admin', 13),
 ('ayushj94', 13),
 ('gosaindhruv94', 13),
 ('mrinal94', 13),

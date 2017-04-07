@@ -55,7 +55,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"><img src="/static/images/profilePic.png" alt="Avatar" class="rounded-circle" width="40"></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
-                    <a class="dropdown-item" href="student-account-edit.html">
+                    <a class="dropdown-item" href= "{{url_for('.edit')}}">
                         <i class="material-icons">edit</i> Edit Account
                     </a>
                     <a class="dropdown-item" href="student-profile.html">
@@ -383,7 +383,7 @@
                             <div class="sidebar-heading">Student</div>
                             <ul class="sidebar-menu">
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="student-account-edit.html">
+                                    <a class="sidebar-menu-button" href="{{url_for('.edit')}}">
                                         <i class="sidebar-menu-icon material-icons">account_box</i> Edit Account
                                     </a>
                                 </li>

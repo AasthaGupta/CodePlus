@@ -53,6 +53,27 @@ def dashboard():
 	else:
 		return render_template('404.html'),404
 
+@app.route('/dashboard/editAccount/', methods=['POST','GET'])
+def edit():
+	if 'email' in session:
+		error=None
+		if request.method == 'POST':
+			result=request.form
+			status=functions.updateAccount(result)
+			if status['success'] == True :
+				msg="Updated successfully!!"
+				return  redirect(url_for('dashboard',message=msg))
+			else:
+				return render_template('404.html'),404
+		else:
+			userdata=session['user']
+			return render_template('student-account-edit.html',userdata=userdata)
+	else:
+		return redirect(url_for('index',message="Please login!"))
+
+
+			 
+	
 
 @app.route('/dashboard/submission/', methods=['POST','GET'])
 def submission():

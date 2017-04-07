@@ -79,6 +79,23 @@ def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocount
 	connection.commit()
 	print "user added"
 
+def updateValue(fname,lname,email,username,country,dob,oid,oname,otype,ocity,ocountry):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	
+	userInfo = (fname,lname,country,dob,email,)
+	orgInfo = (oname,otype,ocity,ocountry,oid,)
+	print userInfo
+	sql1 = "UPDATE user SET fname = ?, lname = ?, country = ?, dob = ?, password = ? WHERE email = ? "
+	sql2 = "UPDATE organisation SET (oname, otype, ocity, ocountry) = (?,?,?,?) WHERE o_id = ?"
+	
+	cursor.execute(sql1, userInfo)
+	print "added into table user"
+	cursor.execute(sql2, orgInfo)
+	print "added into table organisation"
+	connection.commit()
+	print "user info updated"
+
 def addSubmission(q_code, language, s_time, s_date, status):
 	connection = sql_connect()
 	cursor = connection.cursor()
@@ -89,7 +106,16 @@ def addSubmission(q_code, language, s_time, s_date, status):
 	connection.commit()
 	print "submission added"
 
+def get_o_id(username):
 
+	connection = sql_connect()
+	cursor = connection.cursor()
+	values = (username,)
+	cursor.execute("SELECT o_id FROM member_of WHERE username=?",values)
+	row = cursor.fetchone()
+	if row is None:
+		raise ValueError("Invalid username")
+	return row
 
 def get_user(email, password):
 	connection = sql_connect()
@@ -101,6 +127,16 @@ def get_user(email, password):
 		raise ValueError("Invalid Credentials")
 	return row
 
+def get_user_organisation(o_id):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	values = (o_id,)
+	cursor.execute('SELECT * FROM organisation WHERE o_id =?', values)
+	row = cursor.fetchone()
+	if row is None:
+		raise ValueError("Invalid oid")
+	return row
+
 def get_user_by_email(email):
 	connection = sql_connect()
 	cursor = connection.cursor()
@@ -108,5 +144,5 @@ def get_user_by_email(email):
 	cursor.execute('SELECT * FROM user WHERE email=?', values)
 	row = cursor.fetchone()
 	if row is None:
-		raise ValueError("Invalid Credentials")
+		raise ValueError("Invalid email")
 	return row
