@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Save your solution</title>
+    <title>Submit a Solution</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" />
     <meta name="robots" content="noindex">
     <!-- Material Design Icons  -->
@@ -31,26 +31,24 @@
             {% endif %}
             <div class="card bg-transparent">
                 <div class="card-header bg-white text-xs-center">
-                    <h4 class="card-title">Submit Solution</h4>
+                    <h4 class="card-title">Submit Question</h4>
                     <p class="card-subtitle">Enter the details: </p>
                 </div>
                 <div class="p-2">
                     <form action='.' method='post'>
                         <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Question Code" name="qcode" required>
+                            <input type="number" class="form-control" placeholder="Question Code" name="q_code" required>
+                        </div>
+                      <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Question Name" name="q_name" required>
                         </div>
                         <div class="form-group">
-                            <select name="language" class="form-control">
-                                <option value="C++">C++</option>
-                                <option value="C">C</option>
-                                <option value="JAVA">JAVA</option>
-                                <option value="ADA">ADA</option>
-                                <option value="Python">Python</option>
-                            </select>
+                            <input type="number" class="form-control" placeholder="Question Difficulty" name="difficulty" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" rows="15" name="message" type="text" id="code" placeholder="Paste Code Here" required></textarea>
+                            <input type="text" class="form-control" placeholder="Paste Link" name="link" required>
                         </div>
+                        
                         <div class="form-group ">
                             <span class="btn-block-text">
                             <button type="reset" value="Reset" class="btn  btn-primary">

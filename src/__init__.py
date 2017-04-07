@@ -88,6 +88,21 @@ def submission():
 		return render_template('submission.html',message=msg)
 	else:
 		return render_template('404.html'),404
+	
+@app.route('/dashboard/question/', methods=['POST','GET'])
+def question():
+	if 'email' in session:
+		msg=None
+		if request.method == 'POST':
+			result=request.form
+			status=functions.question(result)
+			if status['success'] == True :
+				msg = status['status']
+			else:
+				msg= "Error: " + status['error']
+		return render_template('question.html',message=msg)
+	else:
+		return render_template('404.html'),404
 
 
 @app.route('/logout/')
