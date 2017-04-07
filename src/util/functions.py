@@ -48,6 +48,20 @@ def submission(form):
 		status['success'] = False
 	return status
 
+def question(form):
+	status = { 'success' : True }
+	try:
+		q_code = form['q_code']
+		q_name = form['q_name']
+		difficulty = form['difficulty']
+		link = form['link']
+
+		database.addQuestion(q_code,q_name,difficulty,link)
+
+	except Exception as e:
+		status['error'] = str(e)
+		status['success'] = False
+	return status
 
 def register(form):
 	status = {'success' : True}
