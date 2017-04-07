@@ -12,10 +12,8 @@
     <!-- Material Design Icons  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Roboto Web Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    {% assets "_css" %}
-      <link rel="stylesheet" href="{{ ASSET_URL }}" />
-    {% endassets %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet"> {% assets "_css" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}" /> {% endassets %}
 </head>
 
 <body class="login">
@@ -27,9 +25,9 @@
                 </div>
             </div>
             {% if message %}
-                <div class="text-xs-center">
-                    <strong> {{ message }} </strong>
-                </div>
+            <div class="text-xs-center">
+                <strong> {{ message }} </strong>
+            </div>
             {% endif %}
             <div class="card bg-transparent">
                 <div class="card-header bg-white text-xs-center">
@@ -60,8 +58,32 @@
             </div>
         </div>
     </div>
+    <footer>
+        <hr>
+        <div class="container-fluid">
+            <div class="row text-xs-center">
+                <h5 class="card-title">Made with <i class="fa fa-heart" style="font-size:16px;color:red;"></i> by </h5><br>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="col-sm-4">
+                        <img src="/static/images/profilePic.png" alt="Aastha" class="rounded-circle" width="40">
+                        <h6>Aastha Gupta</h6>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="/static/images/profilePic.png" alt="Aditi" class="rounded-circle" width="40">
+                        <h6>Aditi Sharma</h6>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="/static/images/profilePic.png" alt="Deepika" class="rounded-circle" width="40">
+                        <span><h6>Deepika Naryani</h6></span>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+    </footer>
     {% assets "_js" %}
-      <script src="{{ ASSET_URL }}" type="text/javascript"></script>
+    <script src="{{ ASSET_URL }}" type="text/javascript"></script>
     {% endassets %}
 </body>
 

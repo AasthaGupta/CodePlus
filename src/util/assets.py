@@ -7,6 +7,7 @@ bundles = {
 		'css/style.min.css',
 		'css/material-design-kit.css',
 		'css/sidebar-collapse.min.css',
+		'404/css/font-awesome.min.css',
 		output='gen/default.css'),
 
 	'_js' : Bundle(
