@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-06 13:11:11
+# @Last Modified time: 2017-04-07 23:29:23
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -53,16 +53,18 @@ def dashboard():
 	else:
 		return render_template('404.html'),404
 
+
+
 @app.route('/dashboard/editAccount/', methods=['POST','GET'])
 def edit():
 	if 'email' in session:
-		error=None
 		if request.method == 'POST':
 			result=request.form
-			status=functions.updateAccount(result)
+			status, userdata=functions.updateAccount(result)
 			if status['success'] == True :
 				msg="Updated successfully!!"
-				return  redirect(url_for('dashboard',message=msg))
+				session['user']=userdata
+				return  render_template('student-account-edit.html',message=msg, userdata=userdata)
 			else:
 				return render_template('404.html'),404
 		else:
@@ -71,9 +73,6 @@ def edit():
 	else:
 		return redirect(url_for('index',message="Please login!"))
 
-
-			 
-	
 
 @app.route('/dashboard/submission/', methods=['POST','GET'])
 def submission():
