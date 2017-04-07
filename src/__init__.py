@@ -45,6 +45,22 @@ def signup():
 
 	return render_template('signup.html',error=error)
 
+@app.route('/forgotPassword/', methods=['POST','GET'])
+def forgotPass():
+	error=None
+	if request.method == 'POST':
+		email=request.form['email']
+		print email
+		status=functions.forgotPassword(email)
+		if status['success']== True :
+			msg="Mail sent!!"
+			return  redirect(url_for('index',message=msg))
+		else:
+			error= "Error: " + status['error']
+
+	return render_template('forgot-password.html',error=error)
+
+
 @app.route('/dashboard/', methods=['GET'])
 def dashboard():
 	if 'email' in session:

@@ -136,3 +136,9 @@ def updateAccount(form):
 def userInfo(email):
 	userdata = database.get_user_by_email(email)
 	return userdata
+
+
+
+def forgotPassword(email):
+	status = {'success' : True}
+	return status
