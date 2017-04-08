@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-07 23:29:23
+# @Last Modified time: 2017-04-08 18:19:47
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -13,23 +13,25 @@ from util import assets, database, functions
 @app.route('/')
 @app.route('/index', methods=['POST','GET']) #entry page for the website
 def index():
+	status=None
+	userdata=None
+	error=None
+	msg=None
 	if request.method == 'POST':
-		status=None
-		userdata=None
 		result=request.form
 		status,userdata=functions.login(result)
 		if status['success']==True:
 			session['email'] = request.form['email']
 			session['user']=userdata
 		else:
-			msg = "Error: " + status['error']
+			error = "Error: " + status['error']
 	else:
 		msg = request.args.get('message', None)
 
 	if 'email' in session :
 		return redirect(url_for('.dashboard'))
 
-	return render_template('index.html',message=msg)
+	return render_template('index.html',message=msg,error=error)
 
 @app.route('/signup/', methods=['POST','GET'])
 def signup():
@@ -93,6 +95,8 @@ def edit():
 @app.route('/dashboard/submission/', methods=['POST','GET'])
 def submission():
 	if 'email' in session:
+		status=None
+		error=None
 		msg=None
 		if request.method == 'POST':
 			result=request.form
@@ -100,23 +104,25 @@ def submission():
 			if status['success'] == True :
 				msg = status['status']
 			else:
-				msg= "Error: " + status['error']
-		return render_template('submission.html',message=msg)
+				error = "Error: " + status['error']
+		return render_template('submission.html',message=msg,error=error)
 	else:
 		return render_template('404.html'),404
-	
+
 @app.route('/dashboard/question/', methods=['POST','GET'])
 def question():
 	if 'email' in session:
+		status=None
+		error=None
 		msg=None
 		if request.method == 'POST':
 			result=request.form
 			status=functions.question(result)
 			if status['success'] == True :
-				msg = status['status']
+				msg = "Question added successfully!!"
 			else:
-				msg= "Error: " + status['error']
-		return render_template('question.html',message=msg)
+				error = "Error: " + status['error']
+		return render_template('question.html',message=msg, error=error)
 	else:
 		return render_template('404.html'),404
 

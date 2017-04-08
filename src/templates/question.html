@@ -46,7 +46,6 @@
                     <i class="material-icons">shopping_cart</i>
                 </a>
             </li> -->
-            
             <!-- User dropdown -->
             <li class="nav-item dropdown">
                 <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"><img src="/static/images/profilePic.png" alt="Avatar" class="rounded-circle" width="40"></a>
@@ -73,31 +72,34 @@
             <li class="breadcrumb-item active">Question Submission</li>
         </ol>
         <div class="card">
-                <div class="card-header bg-white text-xs-center">
-                    <h4 class="card-title">Question Submission</h4>
-                </div>
-                {% if message %}
-                    <div class="text-xs-center alert alert-success">
-                        <strong> {{ message }} </strong>
-                    </div>
-                {% endif %}
+            <div class="card-header bg-white text-xs-center">
+                <h4 class="card-title">Question Submission</h4>
+            </div>
+            {% if message %}
+            <div class="text-xs-center alert alert-info">
+                <strong> {{ message }} </strong>
+            </div>
+            {% endif %} {% if error %}
+            <div class="text-xs-center alert alert-danger">
+                <strong> {{ error }} </strong>
+            </div>
+            {% endif %}
             <div class="p-2">
-                    <form action='.' method='post'>
-                        <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Question Code" name="q_code" required>
-                        </div>
-                      <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Question Name" name="q_name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Question Difficulty" name="difficulty" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Paste Link" name="link" required>
-                        </div>
-                        
-                        <div class="form-group ">
-                            <span class="btn-block-text">
+                <form action='.' method='post'>
+                    <div class="form-group">
+                        <input type="number" class="form-control" placeholder="Question Code" name="q_code" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Question Name" name="q_name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" placeholder="Question Difficulty" name="difficulty" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Paste Link" name="link" required>
+                    </div>
+                    <div class="form-group ">
+                        <span class="btn-block-text">
                             <button type="reset" value="Reset" class="btn  btn-primary">
                                 Reset
                             </button>
@@ -106,11 +108,11 @@
                                 Submit
                             </button>
                             </span>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
     </div>
     <div class="footer">

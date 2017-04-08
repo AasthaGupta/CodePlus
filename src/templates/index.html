@@ -17,89 +17,100 @@
 </head>
 
 <body class="login">
-
-<div style="background-color:#880e4f;">
-<!--[if gte mso 9]>
+    <div style="background-color:#880e4f;">
+        <!--[if gte mso 9]>
     <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;">
     <v:fill type="frame" src="E:\DBMS-Project\src\static\images\Pattern-Library.jpg"color="#880e4f" />
     <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
         <![endif]-->
- <table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0">
-   <tr>
-     <td valign="top" align="left" background="/static/images/Pattern1.jpg" style="background-repeat:no-repeat; background-size:cover;">
-    <div class="row">
-        <div class="col-sm-8 push-sm-1 col-md-4 push-md-4 col-lg-4 push-lg-4">
-            <div class="text-xs-center m-2">
-                <div class="icon-block rounded-circle">
-                    <i class="material-icons md-36 text-muted">lock</i>
-                </div>
-            </div>
-            {% if message %}
-            <div class="text-xs-center alert alert-info">
-                <strong> {{ message }} </strong>
-            </div>
-            {% endif %}
-            <div class="card bg-transparent" style="background-color:rgba(192,192,192,0.8);">
-                <div class="card-header bg-white text-xs-center">
-                    <h4 class="card-title">Login</h4>
-                    <p class="card-subtitle">Access your account</p>
-                </div>
-                <div class="p-2">
-                    <form action='index' method='post'>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" name="email" required>
+        <table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td valign="top" align="left" background="/static/images/Pattern1.jpg" style="background-repeat:no-repeat; background-size:cover;">
+                    <div class="row">
+                        <div class="col-sm-8 push-sm-1 col-md-4 push-md-4 col-lg-4 push-lg-4">
+                            <div class="text-xs-center m-2">
+                                <div class="icon-block rounded-circle">
+                                    <i class="material-icons md-36 text-muted">lock</i>
+                                </div>
+                            </div>
+                            {% if message %}
+                            <div class="text-xs-center alert alert-info">
+                                <strong> {{ message }} </strong>
+                            </div>
+                            {% endif %} {% if error %}
+                            <div class="text-xs-center alert alert-danger">
+                                <strong> {{ error }} </strong>
+                            </div>
+                            {% endif %}
+                            <div class="card bg-transparent" style="background-color:rgba(192,192,192,0.8);">
+                                <div class="card-header bg-white text-xs-center">
+                                    <h4 class="card-title">Login</h4>
+                                    <p class="card-subtitle">Access your account</p>
+                                </div>
+                                <div class="p-2">
+                                    <form action='index' method='post'>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                        </div>
+                                        <div class="form-group ">
+                                            <button type="submit" class="btn  btn-primary btn-block">
+                                                <span class="btn-block-text">Login</span>
+                                            </button>
+                                        </div>
+                                        <div class="text-xs-center">
+                                            <a href="{{ url_for('.forgotPass')}}"><small>Forgot Password?</small></a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer text-xs-center bg-white">
+                                    Not yet a member? <a href="signup/">Sign up</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" name="password" required>
-                        </div>
-                        <div class="form-group ">
-                            <button type="submit" class="btn  btn-primary btn-block">
-                                <span class="btn-block-text">Login</span>
-                            </button>
-                        </div>
-                        <div class="text-xs-center">
-                            <a href="{{ url_for('.forgotPass')}}"><small>Forgot Password?</small></a>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer text-xs-center bg-white">
-                    Not yet a member? <a href="signup/">Sign up</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <hr>
-        <div class="container-fluid">
-            <div class="row text-xs-center">
-                <h5 class="card-title">Made with <i class="fa fa-heart" style="font-size:16px;color:red;"></i> by </h5><br>
-                <div class="col-sm-4"></div>
-                <div class="col-sm-8">
-                    <div class="col-sm-2">
-                        <img src="/static/images/a1.jpg" alt="Aastha" class="rounded-circle" width="40"><br>
-                        <small>Aastha Gupta</small>
                     </div>
-                    <div class="col-sm-2">
-                        <img src="/static/images/a2.jpg" alt="Aditi" class="rounded-circle" width="40"><br>
-                        <small>Aditi Sharma</small>
-                    </div>
-                    <div class="col-sm-2">
-                        <img src="/static/images/a3.jpg" alt="Deepika" class="rounded-circle" width="40"><br>
-                        <small>Deepika Naryani</small>
-                    </div>
-                </div>
-                <div class="col-sm-2"></div>
-            </div>
-        </div>
-    </footer>
-    </td>
-   </tr>
- </table>
- <!--[if gte mso 9]>
+                    <footer>
+                        <hr>
+                        <div class="container-fluid">
+                            <div class="row text-xs-center">
+                                <h5 class="card-title">Made with <i class="fa fa-heart" style="font-size:16px;color:red;"></i> by </h5>
+                                <br>
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-8">
+                                    <div class="col-sm-2">
+                                        <div style="width:40px;height:40px;overflow:hidden;" class="rounded-circle">
+                                            <img src="/static/images/a1.jpg" alt="Aastha" width="40">
+                                        </div>
+                                        <div class="text-centre">
+                                        <small>Aastha Gupta</small></div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div style="width:40px;height:40px;overflow:hidden;" class="rounded-circle">
+                                            <img src="/static/images/a2.jpg" alt="Aditi" width="40">
+                                        </div>
+                                        <small>Aditi Sharma</small>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div style="width:40px;height:40px;overflow:hidden;" class="rounded-circle">
+                                            <img src="/static/images/a3.jpg" alt="Deepika" width="40">
+                                        </div>
+                                        <small>Deepika Naryani</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                        </div>
+                    </footer>
+                </td>
+            </tr>
+        </table>
+        <!--[if gte mso 9]>
 </v:textbox>
 </v:rect>
 <![endif]-->
-</div>
+    </div>
     {% assets "_js" %}
     <script src="{{ ASSET_URL }}" type="text/javascript"></script>
     {% endassets %}
