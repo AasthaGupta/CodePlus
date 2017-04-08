@@ -78,7 +78,7 @@ def register(form):
 		otype=form['otype']
 		ocity=form['ocity']
 		ocountry=form['ocountry']
-		print"taken form data"
+		print"taken form data",form
 
 		if database.username_exists(username):
 			raise ValueError('Username already taken')
