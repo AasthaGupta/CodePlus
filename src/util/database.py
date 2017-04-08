@@ -115,6 +115,22 @@ def addQuestion(q_code, q_name, difficulty, link):
 	connection.commit()
 	print "question added"
 
+def getSubmission(username):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	cursor.execute("write select query", (username,))
+	row = cursor.fetchall()
+	return row
+
+def getQuestion(username):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	quesInfo = (q_code, q_name, difficulty, link)
+	print quesInfo
+	cursor.execute("INSERT INTO question ( q_code, q_name, difficulty, link ) VALUES (?,?,?,?)", quesInfo)
+	connection.commit()
+	print "question added"
+
 def get_oid(username):
 
 	connection = sql_connect()
