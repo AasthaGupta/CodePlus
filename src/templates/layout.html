@@ -45,7 +45,7 @@
                         <i class="material-icons">delete</i> Delete Account
                     </a>
                     <a class="dropdown-item" href="{{url_for('logout')}}">
-                        <i class="material-icons">receipt</i> Logout
+                        <i class="material-icons">lock_open</i> Logout
                     </a>
                 </div>
             </li>
@@ -84,20 +84,20 @@
                     <div class="sidebar-heading">Student</div>
                     <ul class="sidebar-menu">
                         <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="{{url_for('.edit')}}">
-                                        <i class="sidebar-menu-icon material-icons">account_box</i> Edit Account
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="{{url_for('logout')}}">
-                                        <i class="sidebar-menu-icon material-icons">lock_open</i> Logout
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="{{url_for('.delete')}}">
-                                        <i class="sidebar-menu-icon material-icons">receipt</i> Delete Account
-                                    </a>
-                                </li>
+                            <a class="sidebar-menu-button" href="{{url_for('.edit')}}">
+                                <i class="sidebar-menu-icon material-icons">account_box</i> Edit Account
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="{{url_for('.delete')}}">
+                                <i class="sidebar-menu-icon material-icons">delete</i> Delete Account
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="{{url_for('logout')}}">
+                                <i class="sidebar-menu-icon material-icons">lock_open</i> Logout
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
