@@ -105,14 +105,13 @@ def addSubmission(q_code, language, s_time, s_date, status):
 	cursor.execute("INSERT INTO solution_of ( q_code ) VALUES (?)", (q_code,))
 	connection.commit()
 	print "submission added"
-	
+
 def addQuestion(q_code, q_name, difficulty, link):
 	connection = sql_connect()
 	cursor = connection.cursor()
 	quesInfo = (q_code, q_name, difficulty, link)
 	print quesInfo
 	cursor.execute("INSERT INTO question ( q_code, q_name, difficulty, link ) VALUES (?,?,?,?)", quesInfo)
-	
 	connection.commit()
 	print "question added"
 

@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-08 18:19:47
+# @Last Modified time: 2017-04-08 18:39:11
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -102,7 +102,7 @@ def submission():
 			result=request.form
 			status=functions.submission(result)
 			if status['success'] == True :
-				msg = status['status']
+				msg = "Solution saved!"
 			else:
 				error = "Error: " + status['error']
 		return render_template('submission.html',message=msg,error=error)
