@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-08 18:39:11
+# @Last Modified time: 2017-04-08 19:48:14
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -95,6 +95,7 @@ def edit():
 @app.route('/dashboard/submission/', methods=['POST','GET'])
 def submission():
 	if 'email' in session:
+		userdata=session['user']
 		status=None
 		error=None
 		msg=None
@@ -105,13 +106,14 @@ def submission():
 				msg = "Solution saved!"
 			else:
 				error = "Error: " + status['error']
-		return render_template('submission.html',message=msg,error=error)
+		return render_template('submission.html',message=msg,error=error,userdata=userdata)
 	else:
 		return render_template('404.html'),404
 
 @app.route('/dashboard/question/', methods=['POST','GET'])
 def question():
 	if 'email' in session:
+		userdata=session['user']
 		status=None
 		error=None
 		msg=None
@@ -122,7 +124,7 @@ def question():
 				msg = "Question added successfully!!"
 			else:
 				error = "Error: " + status['error']
-		return render_template('question.html',message=msg, error=error)
+		return render_template('question.html',message=msg, error=error, userdata=userdata)
 	else:
 		return render_template('404.html'),404
 
