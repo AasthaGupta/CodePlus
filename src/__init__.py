@@ -128,6 +128,29 @@ def question():
 	else:
 		return render_template('404.html'),404
 
+@app.route('/dashboard/deleteAccount/', methods=['POST','GET'])
+def delete():
+	if 'email' in session:
+		if request.method == 'POST':
+			username = session['user']['username']
+			oid = session['user']['o_id']
+			status=functions.deleteAccount(username,oid)
+			if status['success'] == True :
+				msg="Account Deleted!!"
+				session.pop('email', None)
+				session.pop('user', None)
+				return  redirect(url_for('index',message=msg))
+			else:
+				userdata=session['user']
+				error="Error:" + status['error']
+				return render_template('delete-account.html',error=error,userdata=userdata)
+		else:
+			userdata=session['user']
+			return render_template('delete-account.html',userdata=userdata)
+	else:
+		return redirect(url_for('index',message="Please login!"))
+
+
 
 @app.route('/logout/')
 def logout():

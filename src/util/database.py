@@ -129,6 +129,16 @@ def get_oid(username):
 		raise ValueError("Invalid username")
 	return row[0]
 
+def deleteUser(username,oid):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	cursor.execute("DELETE FROM user WHERE username = ?",(username,))
+	print "Record deleted from user table"
+	cursor.execute("DELETE FROM member_of WHERE o_id =?",(oid,))
+	print "Record deleted from member_of table"
+
+
+
 def get_user(email, password):
 	connection = sql_connect()
 	cursor = connection.cursor()

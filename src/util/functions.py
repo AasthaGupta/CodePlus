@@ -27,6 +27,18 @@ def login(form):
 		status['success'] = False
 	return status,userdata
 
+def deleteAccount(username,oid):
+	status = { 'success' : True }
+	try:
+		database.deleteUser(username,oid)
+	except Exception as e:
+		status['error'] = str(e)
+		status['success'] = False
+	return status
+
+
+
+
 def submission(form):
 	status = { 'success' : True }
 	try:
@@ -136,7 +148,6 @@ def updateAccount(form):
 def userInfo(email):
 	userdata = database.get_user_by_email(email)
 	return userdata
-
 
 
 def forgotPassword(email):
