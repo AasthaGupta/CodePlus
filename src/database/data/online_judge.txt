@@ -1,6 +1,6 @@
-INSERT INTO online_judge (domain) VALUES
-('CODECHEF'),
-('CODEFORCES'),
-('SPOJ'),
-('UVA'),
-('TOPCODER');
+INSERT INTO online_judge (domain,link) VALUES
+('CODECHEF','www.codechef.com'),
+('CODEFORCES','www.codeforces.com'),
+('SPOJ','www.spoj.com'),
+('UVA','www.uva.com'),
+('TOPCODER', 'www.topcoder.com');

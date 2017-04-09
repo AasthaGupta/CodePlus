@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS online_judge
 (
-	domain TEXT NOT NULL PRIMARY KEY
+	domain TEXT NOT NULL PRIMARY KEY,
+	link TEXT NOT NULL
 );
 

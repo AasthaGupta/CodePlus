@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-09 17:23:01
+# @Last Modified time: 2017-04-10 00:24:50
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -54,9 +54,9 @@ def forgotPass():
 		email=request.form['email']
 		print email
 		status=functions.forgotPassword(email)
-		if status['success']== True :
+		if status['success'] == True :
 			msg="Mail sent!!"
-			return  redirect(url_for('index',message=msg))
+			return  redirect(url_for('index', message=msg))
 		else:
 			error= "Error: " + status['error']
 

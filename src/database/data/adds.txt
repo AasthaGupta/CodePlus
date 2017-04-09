@@ -7,12 +7,4 @@ INSERT INTO adds (q_code, username) VALUES
 (6, 'admin'),
 (7, 'admin'),
 (8, 'admin'),
-(9, 'admin'),
-(1, 'amanj94'),
-(1, 'ayushj94'),
-(6, 'ayushj94'),
-(7, 'gosaindhruv94'),
-(8, 'jgarvit94'),
-(2, 'mrinal94'),
-(3, 'mrinal94'),
-(5, 'sadul05');
+(9, 'admin')
