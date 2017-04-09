@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-07 23:29:23
+# @Last Modified time: 2017-04-08 19:48:14
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -13,23 +13,25 @@ from util import assets, database, functions
 @app.route('/')
 @app.route('/index', methods=['POST','GET']) #entry page for the website
 def index():
+	status=None
+	userdata=None
+	error=None
+	msg=None
 	if request.method == 'POST':
-		status=None
-		userdata=None
 		result=request.form
 		status,userdata=functions.login(result)
 		if status['success']==True:
 			session['email'] = request.form['email']
 			session['user']=userdata
 		else:
-			msg = "Error: " + status['error']
+			error = "Error: " + status['error']
 	else:
 		msg = request.args.get('message', None)
 
 	if 'email' in session :
 		return redirect(url_for('.dashboard'))
 
-	return render_template('index.html',message=msg)
+	return render_template('index.html',message=msg,error=error)
 
 @app.route('/signup/', methods=['POST','GET'])
 def signup():
@@ -63,9 +65,15 @@ def forgotPass():
 
 @app.route('/dashboard/', methods=['GET'])
 def dashboard():
+        subData=None
+        subData2=None
 	if 'email' in session:
+                result=request.form
 		userdata=session['user']
-		return render_template('student-dashboard.html',userdata=userdata)
+		subData=functions.get_qsubmissions(result)
+                subData2 = functions.get_asubmissions(result)
+		return render_template('student-dashboard.html',subData = subData,subData2 = subData2)
+                
 	else:
 		return render_template('404.html'),404
 
@@ -89,34 +97,44 @@ def edit():
 	else:
 		return redirect(url_for('index',message="Please login!"))
 
+	
 
+
+
+                
 @app.route('/dashboard/submission/', methods=['POST','GET'])
 def submission():
 	if 'email' in session:
+		userdata=session['user']
+		status=None
+		error=None
 		msg=None
 		if request.method == 'POST':
 			result=request.form
 			status=functions.submission(result)
 			if status['success'] == True :
-				msg = status['status']
+				msg = "Solution saved!"
 			else:
-				msg= "Error: " + status['error']
-		return render_template('submission.html',message=msg)
+				error = "Error: " + status['error']
+		return render_template('submission.html',message=msg,error=error,userdata=userdata)
 	else:
 		return render_template('404.html'),404
-	
+
 @app.route('/dashboard/question/', methods=['POST','GET'])
 def question():
 	if 'email' in session:
+		userdata=session['user']
+		status=None
+		error=None
 		msg=None
 		if request.method == 'POST':
 			result=request.form
 			status=functions.question(result)
 			if status['success'] == True :
-				msg = status['status']
+				msg = "Question added successfully!!"
 			else:
-				msg= "Error: " + status['error']
-		return render_template('question.html',message=msg)
+				error = "Error: " + status['error']
+		return render_template('question.html',message=msg, error=error, userdata=userdata)
 	else:
 		return render_template('404.html'),404
 

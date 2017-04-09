@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block page %}Dashboard{% endblock %}
+{% block main %}
+<div class="row">
+  <div class="col-lg-7">
+    <div class="card">
+      <div class="card-header bg-white">
+        <div class="media">
+          <div class="media-body">
+            <h4 class="card-title">Courses</h4>
+            <p class="card-subtitle">Your recent courses</p>
+          </div>
+          <div class="media-right media-middle">
+            <a class="btn btn-sm btn-primary-outline" href="student-my-courses.html">My courses</a>
+          </div>
+        </div>
+      </div>
+      <ul class="list-group list-group-fit mb-0">
+        <li class="list-group-item">
+          <div class="media">
+            <div class="media-body media-middle">
+              <a href="student-take-course.html">Basics of HTML</a>
+            </div>
+            <div class="media-right media-middle">
+              <div class="text-xs-center">
+                <p><span class="tag tag-pill tag-primary mb-05">25%</span></p>
+                <progress class="progress progress-primary mb-0" value="25" max="100" style="width:100px">25%</progress>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header bg-white">
+        <div class="media">
+          <div class="media-body">
+            <h4 class="card-title">Quizzes</h4>
+            <p class="card-subtitle">Your Performance</p>
+          </div>
+          <div class="media-right media-middle">
+            <a class="btn btn-sm btn-primary-outline" href="#">Quiz results</a>
+          </div>
+        </div>
+      </div>
+      <ul class="list-group list-group-fit mb-0">
+        <li class="list-group-item">
+          <div class="media">
+            <div class="media-body media-middle">
+              <a href="student-quiz-results.html">Title of quiz goes here?</a><br>
+              <small class="text-light">Course: <a href="student-take-course.html">Basics of HTML</a></small>
+            </div>
+            <div class="media-right text-xs-center">
+              <h4 class="mb-0">5.8</h4>
+              <span class="text-muted-light">Good</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="card">
+        <div class="card-header bg-white">
+            <h4 class="card-title">Online Judges</h4>
+            <p class="card-subtitle">Your programming profiles</p>
+        </div>
+        <div class="card-block text-xs-center">
+            <img src="/static/images/logo/spoj.png" alt="SPOJ" class="rounded-circle" width="40">
+            <img src="/static/images/logo/uva.png" alt="UVA" class="rounded-circle" width="40">
+            <img src="/static/images/logo/codechef.png" alt="CODECHEF" class="rounded-circle" width="40">
+            <img src="/static/images/logo/codeforces.png" alt="CODEFORCES" class="rounded-circle" width="40">
+        </div>
+    </div>
+    <div class="card">
+      <div class="card-header bg-white">
+        <div class="media">
+          <div class="media-body media-middle">
+            <h4 class="card-title">Add a Question</h4>
+            <p class="card-subtitle">Latest forum topics &amp; comments</p> 
+          </div>
+          <div class="media-right media-middle">
+            <a class="btn btn-sm btn-primary-outline" href="student-forum.html"> <i class="material-icons">keyboard_arrow_right</i></a>
+          </div>
+        </div>
+      </div>
+      <ul class="list-group list-group-fit">
+        <li class="list-group-item forum-thread media">
+          <div class="media-left">
+            <div class="forum-icon-wrapper" id="forum-item-1">
+              <a href="student-forum-thread.html" class="forum-thread-icon">
+                <i class="material-icons">description</i>
+              </a>
+              <a href="#public-profile" class="forum-thread-user">
+                <img src="assets/images/people/50/guy-7.jpg" alt="" width="20" class="rounded-circle">
+              </a>
+            </div>
+            <span class="mdk-tooltip mdk-js-tooltip" for="forum-item-1">
+              replied by Brian S.
+            </span>
+          </div>
+          <div class="media-body media-middle">
+            <a href="student-forum-thread.html">Am I learning the right way?</a>
+          </div>
+          <div class="media-right media-middle">
+            <div style="width:80px; text-align: right;">
+              <small class="text-muted-light">5 min ago</small>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

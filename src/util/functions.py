@@ -27,6 +27,20 @@ def login(form):
 		status['success'] = False
 	return status,userdata
 
+
+def get_qsubmissions(username):
+        subData = database.get_qsubmissions(username)
+	return subData
+
+def get_asubmissions(username):
+        subData = database.get_asubmissions(username)
+        return subData
+                
+
+
+
+        
+
 def submission(form):
 	status = { 'success' : True }
 	try:

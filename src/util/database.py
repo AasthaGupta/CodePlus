@@ -105,14 +105,13 @@ def addSubmission(q_code, language, s_time, s_date, status):
 	cursor.execute("INSERT INTO solution_of ( q_code ) VALUES (?)", (q_code,))
 	connection.commit()
 	print "submission added"
-	
+
 def addQuestion(q_code, q_name, difficulty, link):
 	connection = sql_connect()
 	cursor = connection.cursor()
 	quesInfo = (q_code, q_name, difficulty, link)
 	print quesInfo
 	cursor.execute("INSERT INTO question ( q_code, q_name, difficulty, link ) VALUES (?,?,?,?)", quesInfo)
-	
 	connection.commit()
 	print "question added"
 
@@ -136,6 +135,27 @@ def get_user(email, password):
 	if row is None:
 		raise ValueError("Invalid Credentials")
 	return row
+
+def get_qsubmissions (username):
+        connection = sql_connect()
+	cursor = connection.cursor()
+	values=(username,)
+	cursor.execute('SELECT q_code,q_name,difficulty FROM submits NATURAL JOIN solution_of NATURAL JOIN question WHERE username=?', values)
+	rows = cursor.fetchall()
+	if rows is None:
+		raise ValueError("No Submissions")
+	return rows
+
+def get_asubmissions (username):
+        connection = sql_connect()
+	cursor = connection.cursor()
+	values = (username,)
+	cursor.execute('SELECT sid,s_date,s_time, q_code FROM submits NATURAL JOIN solution_of NATURAL JOIN solution WHERE username=?', values)
+	rows = cursor.fetchall()
+	if rows is None:
+		raise ValueError("No Submissions")
+	return rows
+
 
 def get_user_organisation(o_id):
 	connection = sql_connect()
