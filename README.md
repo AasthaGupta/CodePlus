@@ -6,9 +6,4 @@ A database for the programmers with a login system to manage their online judge 
 3. Save solution for future reference.
 
 ## Deployment
-master branch gets automatically deployed to [heroku app](https://codeplus.herokuapp.com/)
-
-
-Note: Please push to master branch only after checking that the code is working.
-
-Note: Changed the domain name
+You can visit the site [here](https://codeplus.herokuapp.com/)
