@@ -1,9 +1,8 @@
 ## OnlineJudge Database Management System
-A database for the programmers with a login system to manage their online judge submissions.
+A database management system for programmers to manage their code submissions from various online judges.
 ## Features
-1. Add the questions you want to do.
-2. Keep a track of answered questions and their status.
-3. Save solution for future reference.
+1. Add the questions you want to do from various online platforms on the dashboard.
+2. Keep a track of submissions to the questions you have chosen with their status in one place.
 
 ## Deployment
 You can visit the site [here](https://codeplus.herokuapp.com/)
