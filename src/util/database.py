@@ -92,13 +92,19 @@ def updateUser(fname,lname,email,username,country,dob,oid,oname,otype,ocity,ocou
 	connection.commit()
 	print "user info updated"
 
-def addSubmission(q_code, language, s_time, s_date, status):
+def addSubmission(q_code, q_name, language, s_time, s_date, status, username):
 	connection = sql_connect()
 	cursor = connection.cursor()
 	subInfo = (s_date, s_time, language, status,)
-	print subInfo
 	cursor.execute("INSERT INTO solution ( s_date, s_time, language, status ) VALUES (?,?,?,?)", subInfo)
-	cursor.execute("INSERT INTO solution_of ( q_code ) VALUES (?)", (q_code,))
+	connection.commit()
+	cursor.execute("SELECT * FROM solution WHERE s_date = ? and s_time = ? and language = ? and status = ?", subInfo)
+	row = cursor.fetchone()
+	if row is None:
+		raise ValueError("No submission added")
+	s_id = row[0]
+	cursor.execute("INSERT INTO submits (s_id, username) VALUES (?,?)", (s_id, username,))
+	cursor.execute("INSERT INTO solution_of (s_id, q_code) VALUES (?,?)", (s_id, q_code,))
 	connection.commit()
 	print "submission added"
 
@@ -112,7 +118,7 @@ def addQuestion(q_name, difficulty, link, username):
 	cursor.execute('SELECT * FROM question WHERE q_name = ? and difficulty = ? and link = ?', quesInfo)
 	row = cursor.fetchone()
 	if row is None:
-		raise ValueError("No organisation found")
+		raise ValueError("No question added")
 	q_code = row[0]
 	cursor.execute("INSERT INTO adds (username,q_code) VALUES (?,?)",(username,q_code,))
 	connection.commit()
@@ -153,7 +159,7 @@ def getQuestions(username):
     connection = sql_connect()
     cursor = connection.cursor()
     values=(username,)
-    cursor.execute('SELECT q_name,difficulty, link FROM adds NATURAL JOIN question WHERE username=?', values)
+    cursor.execute('SELECT q_name, difficulty, link, q_code FROM adds NATURAL JOIN question WHERE username=?', values)
     rows = cursor.fetchall()
     return rows
 
@@ -161,7 +167,7 @@ def getSubmissions(username):
     connection = sql_connect()
     cursor = connection.cursor()
     values = (username,)
-    cursor.execute('SELECT q_name,status,s_date,s_time FROM submits NATURAL JOIN solution_of NATURAL JOIN solution NATURAL JOIN question WHERE username=?', values)
+    cursor.execute('SELECT q_name,status,s_date,s_time,language FROM submits NATURAL JOIN solution_of NATURAL JOIN solution NATURAL JOIN question WHERE username=?', values)
     rows = cursor.fetchall()
     return rows
 

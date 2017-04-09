@@ -48,21 +48,17 @@ def deleteAccount(username,oid):
 
 
 
-def submission(form):
+def submission(form,username):
 	status = { 'success' : True }
 	try:
-		q_code = form['qcode']
+		qdetails = form['qdetails']
+		q_name,q_code = qdetails.split('$')
+		q_code=int(q_code)
 		language = form['language']
 		s_date = datetime.now().date().strftime('%Y-%m-%d')
 		s_time = datetime.now().time().strftime('%H:%M:%S')
-		print s_date,s_time
-
-		arr = ["WA","AC","TLE"]
-		x = random.randrange(0,3)
-		codeStatus = arr[x]
-		status['status'] = codeStatus
-
-		database.addSubmission(q_code,language,s_time,s_date,codeStatus)
+		codeStatus = form['status']
+		database.addSubmission(q_code,q_name,language,s_time,s_date,codeStatus,username)
 
 	except Exception as e:
 		status['error'] = str(e)

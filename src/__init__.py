@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-09 15:45:07
+# @Last Modified time: 2017-04-09 17:23:01
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -106,7 +106,7 @@ def submission():
 		subData = functions.getQuestions(username)
 		if request.method == 'POST':
 			result=request.form
-			status=functions.submission(result)
+			status=functions.submission(result,username)
 			if status['success'] == True :
 				msg = "Solution saved!"
 			else:

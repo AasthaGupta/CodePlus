@@ -22,9 +22,9 @@
                 <div class="form-group row">
                     <div class="col-sm-12 col-md-12">
                         <div class="input-group">
-                            <select name="qname" class="form-control">
+                            <select name="qdetails" class="form-control">
                                 {% for row in subData %}
-                                <option value="{{row[0]}}">{{ row[0] }}</option>
+                                    <option value="{{ row[0] + '$' + row[3]|string }}">{{ row[0] }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -46,7 +46,7 @@
                 <div class="form-group row">
                     <div class="col-sm-12 col-md-12">
                         <div class="input-group">
-                            <select name="stauts" class="form-control">
+                            <select name="status" class="form-control">
                                 <option value="ACCEPTED">Accepted</option>
                                 <option value="TLE">TLE</option>
                                 <option value="COMPILATION ERROR">Compilation Error</option>

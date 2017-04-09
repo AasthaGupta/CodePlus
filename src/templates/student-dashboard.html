@@ -3,92 +3,92 @@
 {% block page %}Dashboard{% endblock %}
 {% block main %}
 <div class="row">
-  <div class="col-lg-7">
-    <div class="card">
-      <div class="card-header bg-white">
-        <div class="media">
-          <div class="media-body">
-            <h4 class="card-title">Solutions</h4>
-            <p class="card-subtitle">Your solutions</p>
-          </div>
-          <!-- <div class="media-right media-middle">
-            <a class="btn btn-sm btn-primary-outline" href="student-my-courses.html">My courses</a>
-          </div> -->
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-header bg-white">
+                <div class="media">
+                    <div class="media-body">
+                        <h4 class="card-title">Solutions</h4>
+                        <p class="card-subtitle">Your solutions</p>
+                    </div>
+                </div>
+            </div>
+            <ul class="list-group list-group-fit mb-0">
+                {% for row in subData2 %}
+                <li class="list-group-item">
+                    <div class="media">
+                        <div class="media-body media-middle">
+                            <h6 style="color:#03A9F4">{{ row[0] }}</h6>
+                            <small><span class="text-muted-light">{{ row[4] }}</span></small>
+                        </div>
+                        <div class="media-right media-middle">
+                            <div class="text-xs-center">
+                                <p><span class="tag tag-pill tag-primary mb-05">{{ row[1] }}</span></p>
+                                <small span class="text-muted-light">{{row[2]}}</span></small>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-      </div>
-      <ul class="list-group list-group-fit mb-0">
-        {% for row in subData2 %}
-        <li class="list-group-item">
-          <div class="media">
-            <div class="media-body media-middle">
-                <a href=".">{{ row[0] }}</a>
+        <div class="card">
+            <div class="card-header bg-white">
+                <div class="media">
+                    <div class="media-body">
+                        <h4 class="card-title">Questions</h4>
+                        <p class="card-subtitle">Your questions</p>
+                    </div>
+                </div>
             </div>
-            <div class="media-right media-middle">
-              <div class="text-xs-center">
-                <p><span class="tag tag-pill tag-primary mb-05">{{ row[1] }}</span></p>
-		<small span class="text-muted-light">{{row[2]}}</span></small>
-              </div>
-            </div>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-header bg-white">
-        <div class="media">
-          <div class="media-body">
-            <h4 class="card-title">Questions</h4>
-            <p class="card-subtitle">Your questions</p>
-          </div>
-        </div>
-      </div>
-      <ul class="list-group list-group-fit mb-0">
-	{% for row in subData %}
-        <li class="list-group-item">
-          <div class="media">
-            <div class="media-body media-middle">
-              <a href="{{row[2]}}">{{row[0]}}</a><br>
-            </div>
-            <div class="media-right text-xs-center">
-              <h4 class="mb-0">{{row[1]}}</h4>
-              <span class="text-muted-light">Difficulty</span>
-            </div>
-          </div>
-        </li>
-	{% endfor %}
-      </ul>
-    </div>
-  </div>
-  <div class="col-lg-5">
-    <div class="card">
-      <div style="width:200px;height:200px;margin:auto;" class="rounded-circle">
-          <img src="/static/images/codeplus.jpeg" alt="CodePlus" width="200">
-      </div>
-    </div>
-    <div class="card">
-        <div class="card-header bg-white text-xs-center">
-            <h4 class="card-title">Online Judges</h4>
-            <p class="card-subtitle">Your programming profiles</p>
-        </div>
-        <div class="card-block text-xs-center">
-          <a href="http://spoj.com/">
-            <img src="/static/images/logo/spoj.png" alt="SPOJ" class="rounded-circle" width="40">
-          </a>
-          <a href="http://uva.com/">
-            <img src="/static/images/logo/uva.png" alt="UVA" class="rounded-circle" width="40">
-          </a>
-          <a href="http://codechef.com/">
-            <img src="/static/images/logo/codechef.png" alt="CODECHEF" class="rounded-circle" width="40">
-          </a>
-          <a href="http://codeforces.com/">
-            <img src="/static/images/logo/codeforces.png" alt="CODEFORCES" class="rounded-circle" width="40">
-          </a>
-          <a href="/blah">
-            <img src="/static/images/logo/oj.png" alt="A2OJ" class="rounded-circle" width="40">
-          </a>
+            <ul class="list-group list-group-fit mb-0">
+                {% for row in subData %}
+                <li class="list-group-item">
+                    <div class="media">
+                        <div class="media-body media-middle">
+                            <a href="{{row[2]}}">{{row[0]}}</a>
+                            <br>
+                        </div>
+                        <div class="media-right text-xs-center">
+                            <h4 class="mb-0">{{row[1]}}</h4>
+                            <span class="text-muted-light">Difficulty</span>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
-  </div>
+    <div class="col-lg-5">
+        <div class="card">
+            <div style="width:200px;height:200px;margin:auto;" class="rounded-circle">
+                <img src="/static/images/codeplus.jpeg" alt="CodePlus" width="200">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header bg-white text-xs-center">
+                <h4 class="card-title">Online Judges</h4>
+                <p class="card-subtitle">Your programming profiles</p>
+            </div>
+            <div class="card-block text-xs-center">
+                <a href="http://spoj.com/">
+                    <img src="/static/images/logo/spoj.png" alt="SPOJ" class="rounded-circle" width="40">
+                </a>
+                <a href="http://uva.com/">
+                    <img src="/static/images/logo/uva.png" alt="UVA" class="rounded-circle" width="40">
+                </a>
+                <a href="http://codechef.com/">
+                    <img src="/static/images/logo/codechef.png" alt="CODECHEF" class="rounded-circle" width="40">
+                </a>
+                <a href="http://codeforces.com/">
+                    <img src="/static/images/logo/codeforces.png" alt="CODEFORCES" class="rounded-circle" width="40">
+                </a>
+                <a href="/blah">
+                    <img src="/static/images/logo/oj.png" alt="A2OJ" class="rounded-circle" width="40">
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
 {% endblock %}
