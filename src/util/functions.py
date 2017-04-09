@@ -76,6 +76,9 @@ def question(form,username):
 		difficulty = form['difficulty']
 		link = form['link']
 
+		if database.link_exists(link,username):
+			raise ValueError('Question already added')
+
 		database.addQuestion(q_name,difficulty,link,username)
 
 	except Exception as e:

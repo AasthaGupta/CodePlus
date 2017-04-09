@@ -66,6 +66,15 @@ def email_exists(email):
 	cursor.execute('SELECT * FROM user WHERE email=?', values)
 	return cursor.fetchone() is not None
 
+def link_exists(link, username):
+	if link is "" :
+		return True
+	connection = sql_connect()
+	cursor = connection.cursor()
+	values=(username, link,)
+	cursor.execute('SELECT * FROM adds NATURAL JOIN question WHERE username = ? and link = ?', values)
+	return cursor.fetchone() is not None
+
 def updateUser(fname,lname,email,username,country,dob,oid,oname,otype,ocity,ocountry):
 	connection = sql_connect()
 	cursor = connection.cursor()
