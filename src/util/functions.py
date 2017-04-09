@@ -38,8 +38,16 @@ def get_asubmissions(username):
                 
 
 
+def deleteAccount(username,oid):
+	status = { 'success' : True }
+	try:
+		database.deleteUser(username,oid)
+	except Exception as e:
+		status['error'] = str(e)
+		status['success'] = False
+	return status
 
-        
+
 
 def submission(form):
 	status = { 'success' : True }
@@ -92,7 +100,7 @@ def register(form):
 		otype=form['otype']
 		ocity=form['ocity']
 		ocountry=form['ocountry']
-		print"taken form data"
+		print"taken form data",form
 
 		if database.username_exists(username):
 			raise ValueError('Username already taken')
@@ -150,7 +158,6 @@ def updateAccount(form):
 def userInfo(email):
 	userdata = database.get_user_by_email(email)
 	return userdata
-
 
 
 def forgotPassword(email):

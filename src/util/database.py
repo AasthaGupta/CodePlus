@@ -66,19 +66,6 @@ def email_exists(email):
 	cursor.execute('SELECT * FROM user WHERE email=?', values)
 	return cursor.fetchone() is not None
 
-def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocountry):
-	connection = sql_connect()
-	cursor = connection.cursor()
-	userInfo = (email,username,password,fname,lname,country,dob,)
-	orgInfo = (oname,otype,ocity,ocountry,)
-	print userInfo
-	cursor.execute("INSERT INTO user (email,username,password,fname,lname,country,dob) VALUES (?,?,?,?,?,?,?)", userInfo)
-	print "added into table user"
-	cursor.execute("INSERT INTO organisation (oname, otype, ocity, ocountry) VALUES (?,?,?,?)", orgInfo)
-	print "added into table organisation"
-	connection.commit()
-	print "user added"
-
 def updateUser(fname,lname,email,username,country,dob,oid,oname,otype,ocity,ocountry):
 	connection = sql_connect()
 	cursor = connection.cursor()
@@ -115,6 +102,22 @@ def addQuestion(q_code, q_name, difficulty, link):
 	connection.commit()
 	print "question added"
 
+def getSubmission(username):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	cursor.execute("write select query", (username,))
+	row = cursor.fetchall()
+	return row
+
+def getQuestion(username):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	quesInfo = (q_code, q_name, difficulty, link)
+	print quesInfo
+	cursor.execute("INSERT INTO question ( q_code, q_name, difficulty, link ) VALUES (?,?,?,?)", quesInfo)
+	connection.commit()
+	print "question added"
+
 def get_oid(username):
 
 	connection = sql_connect()
@@ -125,6 +128,16 @@ def get_oid(username):
 	if row is None:
 		raise ValueError("Invalid username")
 	return row[0]
+
+def deleteUser(username,oid):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	cursor.execute("DELETE FROM user WHERE username = ?",(username,))
+	print "Record deleted from user table"
+	cursor.execute("DELETE FROM member_of WHERE o_id =?",(oid,))
+	print "Record deleted from member_of table"
+
+
 
 def get_user(email, password):
 	connection = sql_connect()
@@ -176,3 +189,23 @@ def get_user_by_email(email):
 	if row is None:
 		raise ValueError("Invalid email")
 	return row
+
+def add(fname,lname,email,username,password,country,dob,oname,otype,ocity,ocountry):
+	connection = sql_connect()
+	cursor = connection.cursor()
+	userInfo = (email,username,password,fname,lname,country,dob,)
+	orgInfo = (oname,otype,ocity,ocountry,)
+	print userInfo
+	cursor.execute("INSERT INTO user (email,username,password,fname,lname,country,dob) VALUES (?,?,?,?,?,?,?)", userInfo)
+	print "added into table user"
+	cursor.execute("INSERT INTO organisation (oname, otype, ocity, ocountry) VALUES (?,?,?,?)", orgInfo)
+	print "added into table organisation"
+	connection.commit()
+	cursor.execute('SELECT * FROM organisation WHERE oname = ? and otype = ? and ocity = ? and ocountry = ?', orgInfo)
+	row = cursor.fetchone()
+	if row is None:
+		raise ValueError("No organisation found")
+	oid = row[0]
+	cursor.execute("INSERT INTO member_of (username,o_id) VALUES (?,?)",(username,oid,))
+	connection.commit()
+	print "user added"
