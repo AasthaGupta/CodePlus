@@ -93,7 +93,7 @@ def addSubmission(q_code, language, s_time, s_date, status):
 	connection.commit()
 	print "submission added"
 
-def addQuestion(username,q_name, difficulty, link):
+def addQuestion(q_name, difficulty, link, username):
 	connection = sql_connect()
 	cursor = connection.cursor()
 	quesInfo = (q_name, difficulty, link)
@@ -144,7 +144,7 @@ def get_qsubmissions (username):
     connection = sql_connect()
     cursor = connection.cursor()
     values=(username,)
-    cursor.execute('SELECT q_name,difficulty, link FROM submits NATURAL JOIN solution_of NATURAL JOIN question WHERE username=?', values)
+    cursor.execute('SELECT q_name,difficulty, link FROM adds NATURAL JOIN question WHERE username=?', values)
     rows = cursor.fetchall()
     return rows
 
