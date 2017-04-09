@@ -5,7 +5,7 @@
 <div class="col-lg-7">
     <div class="card">
         <div class="card-header bg-white text-xs-center">
-            <h4 class="card-title">Edit Account</h4>
+            <h4 class="card-title">Add Question</h4>
         </div>
         {% if message %}
         <div class="text-xs-center alert alert-success">
@@ -31,7 +31,7 @@
                 <div class="form-group row">
                     <div class="col-sm-12 col-md-12">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Question Difficulty" name="difficulty" required>
+                            <input type="number" min="1" max="10"class="form-control" placeholder="Question Difficulty" name="difficulty" required>
                         </div>
                     </div>
                 </div>
