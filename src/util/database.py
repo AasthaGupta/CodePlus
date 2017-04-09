@@ -140,7 +140,7 @@ def get_user(email, password):
 		raise ValueError("Invalid Credentials")
 	return row
 
-def get_qsubmissions (username):
+def getQuestions(username):
     connection = sql_connect()
     cursor = connection.cursor()
     values=(username,)
@@ -148,7 +148,7 @@ def get_qsubmissions (username):
     rows = cursor.fetchall()
     return rows
 
-def get_asubmissions (username):
+def getSubmissions(username):
     connection = sql_connect()
     cursor = connection.cursor()
     values = (username,)

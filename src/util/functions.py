@@ -28,12 +28,12 @@ def login(form):
 	return status,userdata
 
 
-def get_qsubmissions(username):
-        subData = database.get_qsubmissions(username)
+def getQuestions(username):
+        subData = database.getQuestions(username)
 	return subData
 
-def get_asubmissions(username):
-        subData = database.get_asubmissions(username)
+def getSubmissions(username):
+        subData = database.getSubmissions(username)
         return subData
 
 
