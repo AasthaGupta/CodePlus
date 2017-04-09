@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-08 19:48:14
+# @Last Modified time: 2017-04-09 12:51:32
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -65,16 +65,16 @@ def forgotPass():
 
 @app.route('/dashboard/', methods=['GET'])
 def dashboard():
-        subData=None
-        subData2=None
-	if 'email' in session:
-                result=request.form
-		userdata=session['user']
-		subData=functions.get_qsubmissions(result)
-                subData2 = functions.get_asubmissions(result)
-		return render_template('student-dashboard.html',subData = subData,subData2 = subData2)
-                
-	else:
+    if 'email' in session:
+    	subData=None
+    	subData2=None
+    	userdata=session['user']
+    	username=session['user']['username']
+    	subData=functions.get_qsubmissions(username)
+    	subData2 = functions.get_asubmissions(username)
+    	print subData2,subData
+    	return render_template('student-dashboard.html', userdata=userdata, subData = subData, subData2 = subData2)
+    else:
 		return render_template('404.html'),404
 
 
@@ -97,11 +97,7 @@ def edit():
 	else:
 		return redirect(url_for('index',message="Please login!"))
 
-	
 
-
-
-                
 @app.route('/dashboard/submission/', methods=['POST','GET'])
 def submission():
 	if 'email' in session:
@@ -124,12 +120,13 @@ def submission():
 def question():
 	if 'email' in session:
 		userdata=session['user']
+		username = session['user']['username']
 		status=None
 		error=None
 		msg=None
 		if request.method == 'POST':
 			result=request.form
-			status=functions.question(result)
+			status=functions.question(result,username)
 			if status['success'] == True :
 				msg = "Question added successfully!!"
 			else:

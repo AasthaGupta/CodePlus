@@ -93,28 +93,19 @@ def addSubmission(q_code, language, s_time, s_date, status):
 	connection.commit()
 	print "submission added"
 
-def addQuestion(q_code, q_name, difficulty, link):
+def addQuestion(username,q_name, difficulty, link):
 	connection = sql_connect()
 	cursor = connection.cursor()
-	quesInfo = (q_code, q_name, difficulty, link)
+	quesInfo = (q_name, difficulty, link)
 	print quesInfo
-	cursor.execute("INSERT INTO question ( q_code, q_name, difficulty, link ) VALUES (?,?,?,?)", quesInfo)
+	cursor.execute("INSERT INTO question (q_name, difficulty, link ) VALUES (?,?,?)", quesInfo)
 	connection.commit()
-	print "question added"
-
-def getSubmission(username):
-	connection = sql_connect()
-	cursor = connection.cursor()
-	cursor.execute("write select query", (username,))
-	row = cursor.fetchall()
-	return row
-
-def getQuestion(username):
-	connection = sql_connect()
-	cursor = connection.cursor()
-	quesInfo = (q_code, q_name, difficulty, link)
-	print quesInfo
-	cursor.execute("INSERT INTO question ( q_code, q_name, difficulty, link ) VALUES (?,?,?,?)", quesInfo)
+	cursor.execute('SELECT * FROM question WHERE q_name = ? and difficulty = ? and link = ?', quesInfo)
+	row = cursor.fetchone()
+	if row is None:
+		raise ValueError("No organisation found")
+	q_code = row[0]
+	cursor.execute("INSERT INTO adds (username,q_code) VALUES (?,?)",(username,q_code,))
 	connection.commit()
 	print "question added"
 
@@ -150,24 +141,20 @@ def get_user(email, password):
 	return row
 
 def get_qsubmissions (username):
-        connection = sql_connect()
-	cursor = connection.cursor()
-	values=(username,)
-	cursor.execute('SELECT q_code,q_name,difficulty FROM submits NATURAL JOIN solution_of NATURAL JOIN question WHERE username=?', values)
-	rows = cursor.fetchall()
-	if rows is None:
-		raise ValueError("No Submissions")
-	return rows
+    connection = sql_connect()
+    cursor = connection.cursor()
+    values=(username,)
+    cursor.execute('SELECT q_code,q_name,difficulty FROM submits NATURAL JOIN solution_of NATURAL JOIN question WHERE username=?', values)
+    rows = cursor.fetchall()
+    return rows
 
 def get_asubmissions (username):
-        connection = sql_connect()
-	cursor = connection.cursor()
-	values = (username,)
-	cursor.execute('SELECT sid,s_date,s_time, q_code FROM submits NATURAL JOIN solution_of NATURAL JOIN solution WHERE username=?', values)
-	rows = cursor.fetchall()
-	if rows is None:
-		raise ValueError("No Submissions")
-	return rows
+    connection = sql_connect()
+    cursor = connection.cursor()
+    values = (username,)
+    cursor.execute('SELECT s_id,s_date,s_time, q_code FROM submits NATURAL JOIN solution_of NATURAL JOIN solution WHERE username=?', values)
+    rows = cursor.fetchall()
+    return rows
 
 
 def get_user_organisation(o_id):

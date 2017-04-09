@@ -8,28 +8,30 @@
       <div class="card-header bg-white">
         <div class="media">
           <div class="media-body">
-            <h4 class="card-title">Courses</h4>
-            <p class="card-subtitle">Your recent courses</p>
+            <h4 class="card-title">Solutions</h4>
+            <p class="card-subtitle">Your recent solutions</p>
           </div>
-          <div class="media-right media-middle">
+          <!-- <div class="media-right media-middle">
             <a class="btn btn-sm btn-primary-outline" href="student-my-courses.html">My courses</a>
-          </div>
+          </div> -->
         </div>
       </div>
       <ul class="list-group list-group-fit mb-0">
+        {% for row in subData2 %}
         <li class="list-group-item">
           <div class="media">
             <div class="media-body media-middle">
-              <a href="student-take-course.html">Basics of HTML</a>
+                <a href=".">{{ row[2] }}</a>
             </div>
             <div class="media-right media-middle">
               <div class="text-xs-center">
-                <p><span class="tag tag-pill tag-primary mb-05">25%</span></p>
+                <p><span class="tag tag-pill tag-primary mb-05">{{ row[2] }}</span></p>
                 <progress class="progress progress-primary mb-0" value="25" max="100" style="width:100px">25%</progress>
               </div>
             </div>
           </div>
         </li>
+        {% endfor %}
       </ul>
     </div>
     <div class="card">

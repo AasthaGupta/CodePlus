@@ -35,7 +35,6 @@ def get_qsubmissions(username):
 def get_asubmissions(username):
         subData = database.get_asubmissions(username)
         return subData
-                
 
 
 def deleteAccount(username,oid):
@@ -70,15 +69,14 @@ def submission(form):
 		status['success'] = False
 	return status
 
-def question(form):
+def question(form,username):
 	status = { 'success' : True }
 	try:
-		q_code = form['q_code']
 		q_name = form['q_name']
 		difficulty = form['difficulty']
 		link = form['link']
 
-		database.addQuestion(q_code,q_name,difficulty,link)
+		database.addQuestion(q_name,difficulty,link,username)
 
 	except Exception as e:
 		status['error'] = str(e)
