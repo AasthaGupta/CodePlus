@@ -144,7 +144,7 @@ def get_qsubmissions (username):
     connection = sql_connect()
     cursor = connection.cursor()
     values=(username,)
-    cursor.execute('SELECT q_code,q_name,difficulty FROM submits NATURAL JOIN solution_of NATURAL JOIN question WHERE username=?', values)
+    cursor.execute('SELECT q_name,difficulty, link FROM submits NATURAL JOIN solution_of NATURAL JOIN question WHERE username=?', values)
     rows = cursor.fetchall()
     return rows
 
@@ -152,7 +152,7 @@ def get_asubmissions (username):
     connection = sql_connect()
     cursor = connection.cursor()
     values = (username,)
-    cursor.execute('SELECT s_id,s_date,s_time, q_code FROM submits NATURAL JOIN solution_of NATURAL JOIN solution WHERE username=?', values)
+    cursor.execute('SELECT q_name,status,s_date,s_time FROM submits NATURAL JOIN solution_of NATURAL JOIN solution NATURAL JOIN question WHERE username=?', values)
     rows = cursor.fetchall()
     return rows
 

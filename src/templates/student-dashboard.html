@@ -21,12 +21,12 @@
         <li class="list-group-item">
           <div class="media">
             <div class="media-body media-middle">
-                <a href=".">{{ row[2] }}</a>
+                <a href=".">{{ row[0] }}</a>
             </div>
             <div class="media-right media-middle">
               <div class="text-xs-center">
-                <p><span class="tag tag-pill tag-primary mb-05">{{ row[2] }}</span></p>
-                <progress class="progress progress-primary mb-0" value="25" max="100" style="width:100px">25%</progress>
+                <p><span class="tag tag-pill tag-primary mb-05">{{ row[1] }}</span></p>
+		<small span class="text-muted-light">{{row[2]}}</span></small>
               </div>
             </div>
           </div>
@@ -38,27 +38,25 @@
       <div class="card-header bg-white">
         <div class="media">
           <div class="media-body">
-            <h4 class="card-title">Quizzes</h4>
-            <p class="card-subtitle">Your Performance</p>
-          </div>
-          <div class="media-right media-middle">
-            <a class="btn btn-sm btn-primary-outline" href="#">Quiz results</a>
+            <h4 class="card-title">Questions</h4>
+            <p class="card-subtitle">Your questions</p>
           </div>
         </div>
       </div>
       <ul class="list-group list-group-fit mb-0">
+	{% for row in subData %}
         <li class="list-group-item">
           <div class="media">
             <div class="media-body media-middle">
-              <a href="student-quiz-results.html">Title of quiz goes here?</a><br>
-              <small class="text-light">Course: <a href="student-take-course.html">Basics of HTML</a></small>
+              <a href="{{row[2]}}">{{row[0]}}</a><br>
             </div>
             <div class="media-right text-xs-center">
-              <h4 class="mb-0">5.8</h4>
-              <span class="text-muted-light">Good</span>
+              <h4 class="mb-0">{{row[1]}}</h4>
+              <span class="text-muted-light">Difficulty</span>
             </div>
           </div>
         </li>
+	{% endfor %}
       </ul>
     </div>
   </div>
