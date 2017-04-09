@@ -2,7 +2,7 @@
 # @Author: Aastha Gupta
 # @Date:   2017-03-30 13:16:19
 # @Last Modified by:   Aastha Gupta
-# @Last Modified time: 2017-04-09 12:51:32
+# @Last Modified time: 2017-04-09 13:15:16
 
 from flask import Flask ,render_template,session,request,redirect,url_for
 app = Flask(__name__)
@@ -102,9 +102,11 @@ def edit():
 def submission():
 	if 'email' in session:
 		userdata=session['user']
+		username=session['user']['username']
 		status=None
 		error=None
 		msg=None
+		subData=functions.get_qsubmissions(username)
 		if request.method == 'POST':
 			result=request.form
 			status=functions.submission(result)
@@ -112,7 +114,7 @@ def submission():
 				msg = "Solution saved!"
 			else:
 				error = "Error: " + status['error']
-		return render_template('submission.html',message=msg,error=error,userdata=userdata)
+		return render_template('submission.html',message=msg,error=error,userdata=userdata,subData=subData)
 	else:
 		return render_template('404.html'),404
 
