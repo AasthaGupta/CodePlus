@@ -19,7 +19,6 @@ bundles = {
 		'js/dom-factory.js',
 		'js/material-design-kit.js',
 		'js/sidebar-collapse.js',
-		'js/main.min.js',
 		output='gen/default.js'),
 
 	'404_css' : Bundle(
