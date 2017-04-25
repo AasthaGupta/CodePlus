@@ -1,3 +1,4 @@
+This is a part of Academic Project under the course Information System and Data Management (COE-317) at NSIT.
 ## OnlineJudge Database Management System
 A database management system for programmers to manage their code submissions from various online judges.
 ## Features
